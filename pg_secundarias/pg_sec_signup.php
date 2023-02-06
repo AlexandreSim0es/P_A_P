@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -15,10 +16,9 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="\PAP_Alex\css\navbar.css" />
     
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
-
 
   </head>
 
@@ -43,19 +43,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html" >INICIO</a>
+              <a class="nav-link" aria-current="page" href="\PAP_Alex\pg_index.php" >INICIO</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Suporte.html">SUPORTE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Login.html">LOGIN</a>
+            <li class="nav-item"> 
+              <a class="nav-link " href="\PAP_Alex/pg_login.php">LOGIN</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <!-- Page content-->
+
+    <h4 style="color:black"> Bem-Vindo <br> Obrigado por se registar! </h4> 
 
     <!-- Bootstrap core JS-->
 
@@ -64,5 +64,6 @@
     <!-- Core theme JS-->
 
     <script src="js/scripts.js"></script>
+    
   </body>
 </html>

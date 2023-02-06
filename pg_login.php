@@ -1,6 +1,15 @@
+<?php
+
+  include('php_login/login.php');
+  session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
+
+   <title>LOGIN</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,7 +26,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/navbar.css" />
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/pagina_login.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
   </head>
@@ -43,14 +52,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html" >INICIO</a>
+              <a class="nav-link" aria-current="page" href="pg_index.php" >INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Suporte.html">SUPORTE</a>
+              <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="Login.html">LOGIN</a>
-            </li>
+            <?php  if(isset($_SESSION['username'])) {?>
+                  
+                  <li class="nav-item"> <a class="nav-link" href="php_login/logout.php">LOGOUT</a> </li>
+              <?php } else { ?>
+  
+                  <li class="nav-item"> <a class="nav-link active " href="pg_login.php">LOGIN/REGISTRO</a> </li>
+            <?php } ?>
           </ul>
         </div>
       </div>
@@ -64,10 +77,10 @@
 
         <div class="signup">
 
-          <form action="PHP/registro_login.php" method="post"> 
+          <form action="php_login/registro_login.php" method="post"> 
             <label for="chk" aria-hidden="true">Sign up</label>
             <input type="text" name="username" placeholder="Username" required />
-            <input type="text" name="email" placeholder="Email" required />
+            <input type="email" name="email" placeholder="Email" required />
             <input type="password"name="password"placeholder="Password"required/>
 
             <button>Sign up</button>
@@ -77,13 +90,13 @@
 
         <div class="login">
 
-          <form action="PHP/login.php" method="post">
+          <form action="php_login/login.php" method="post">
             <label for="chk" aria-hidden="true">Login</label>
             <input type="text" name="username" placeholder="Username" required />
             <input type="password" name="password"placeholder="Password" required/>
 
             <button>Login</button>
-
+            
           </form>
         </div>
       </div>

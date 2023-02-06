@@ -1,3 +1,10 @@
+<?php
+
+  include('php_login/login.php');
+  session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -15,7 +22,7 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="\PAP_Alex\css\navbar.css" />
     
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
@@ -42,13 +49,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html" >INICIO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Suporte.html">SUPORTE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Login.html">LOGIN</a>
+              <a class="nav-link" aria-current="page" href="\PAP_Alex/pg_index.php" >INICIO</a>
             </li>
           </ul>
         </div>
@@ -56,6 +57,8 @@
     </nav>
 
     <!-- Page content-->
+
+    <h4 style="color:Black"> Bem-Vindo <?php echo $_SESSION['username']; ?> </h4> 
 
     <!-- Bootstrap core JS-->
 

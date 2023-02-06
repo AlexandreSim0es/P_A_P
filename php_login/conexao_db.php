@@ -3,7 +3,7 @@
     $host = "localhost";  
     $user = "root";  
     $password = '';  
-    $db_name = "database_login";  
+    $db_name = "jogo";  
       
     $con = mysqli_connect($host, $user, $password, $db_name);  
 

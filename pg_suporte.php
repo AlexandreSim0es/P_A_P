@@ -1,5 +1,4 @@
 <?php
-
   include('php_login/login.php');
   session_start();
 
@@ -16,7 +15,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title></title>
+    <title>SUPORTE</title>
 
     <!-- Favicon-->
 
@@ -25,8 +24,8 @@
     <!-- CSS -->
 
     <link rel="stylesheet" type="text/css" href="css/navbar.css" />
+
     <link rel="stylesheet" type="text/css" href="css/pagina_suporte.css" />
-    
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
 
@@ -69,42 +68,48 @@
         </div>
       </div>
     </nav>
+    
     <!-- Page content-->
 
+          <div class="row">
+              <h3 style="text-align:center">Contacto</h3>
+          </div>
+          
           <div class="container">
-        <div class="row">
-            <h4 style="text-align:center">Fale conosco!</h4>
-        </div>
+          <form action="php_suporte/contacto.php" method="post">
         <div class="row input-container">
             <div class="col-xs-12">
               <div class="styled-input wide">
-                <input type="text" required />
+                <input type="text" name="nome" id="nome" required />
                 <label>Nome</label> 
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="styled-input">
-                <input type="text" required />
+                <input type="text" name="email" id="email" required />
                 <label>Email</label> 
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="styled-input" style="float:right;">
-                <input type="text" required />
-                <label>Numero</label> 
+                <input type="text" name="telefone" id="telefone"required />
+                <label>Telefone</label> 
               </div>
             </div>
             <div class="col-xs-12">
               <div class="styled-input wide">
-                <textarea required></textarea>
+                <textarea type="text" name="mensagem" id="mensagem"required></textarea>
                 <label>Mensagem</label>
               </div>
             </div>
+            <form action="php_suporte/enviaremail.php" method="post">
             <div class="col-xs-12">
-              <div class="btn-lrg submit-btn">Enviar</div>
+              <button class="btn-lrg submit-btn">Enviar</button>
             </div>
+            </form>
         </div>
-      </div>
+        </form>   
+      </div>     
 
     <!-- Bootstrap core JS-->
 

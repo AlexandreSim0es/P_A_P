@@ -1,7 +1,26 @@
-/*!
-* Start Bootstrap - Bare v5.0.7 (https://startbootstrap.com/template/bare)
-* Copyright 2013-2021 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-bare/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
+<script>
+
+    var myQuestions = [
+        {
+            question: "What is 10/2?",
+            answers: {
+                a: '3',
+                b: '5',
+                c: '115'
+            },
+            correctAnswer: 'b'
+        },
+        {
+            question: "What is 30/3?",
+            answers: {
+                a: '3',
+                b: '5',
+                c: '10'
+            },
+            correctAnswer: 'c'
+        }
+    ];
+
+
+
+</script>

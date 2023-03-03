@@ -1,7 +1,12 @@
+html {
+	height: 100%;
+  }  
+
 body{
 	font-family: 'Jost', sans-serif;
 	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 	margin: 0;
+	overflow: hidden; 
 }
 *,
 *::before,
@@ -55,12 +60,12 @@ ul ol {
 }
 .outer-container {
 	margin: 0;
-	margin-top: 10px;
+	margin-top: -50px;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
+	min-height: 99.4vh;
 }
 #chk{
 	display: none;
@@ -82,7 +87,7 @@ label{
 }
 input{
 	width: 60%;
-	height: 20px;
+	height: 25px;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;

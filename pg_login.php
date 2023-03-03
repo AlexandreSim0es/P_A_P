@@ -1,5 +1,4 @@
 <?php
-
   include('php_login/login.php');
   session_start();
 
@@ -9,14 +8,12 @@
 <html lang="pt">
   <head>
 
-   <title>LOGIN</title>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title></title>
+    <title>LOGIN</title>
 
     <!-- Favicon-->
 
@@ -35,7 +32,7 @@
 
     <!-- Navbar responsiva-->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
       <div class="container">
         <a class="navbar-brand" href="#"></a>
         <button
@@ -78,7 +75,7 @@
         <div class="signup">
 
           <form action="php_login/registro_login.php" method="post"> 
-            <label for="chk" aria-hidden="true">Sign up</label>
+            <label for="chk" aria-hidden="true">Registro</label>
             <input type="text" name="username" placeholder="Username" required />
             <input type="email" name="email" placeholder="Email" required />
             <input type="password"name="password"placeholder="Password"required/>
@@ -91,7 +88,7 @@
         <div class="login">
 
           <form action="php_login/login.php" method="post">
-            <label for="chk" aria-hidden="true">Login</label>
+            <label for="chk"   aria-hidden="true">Login</label>
             <input type="text" name="username" placeholder="Username" required />
             <input type="password" name="password"placeholder="Password" required/>
 

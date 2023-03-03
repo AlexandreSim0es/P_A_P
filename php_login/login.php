@@ -6,24 +6,28 @@
         $username=$_POST['username'];
         $password=$_POST['password'];
 
-       if($stmt = $con->prepare('select * from registro where username= ? and password= ?')) {
+       if($stmt = $con->prepare('select * from user where username= ? and password= ?')) {
         $stmt->bind_param('ss', $_POST['username'], $_POST['password']);
-
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if(mysqli_num_rows($result)==1){
-            header("location: \PAP_Alex\pg_secundarias/pg_sec_login.php"); 
-                
+        if (mysqli_num_rows($result)==1){
+       
+            header("location: \PAP_Alex\pg_secundarias/pg_sec_login.php");
+
             session_start();
             $_SESSION['username'] = $username;
 
+            $stmt->close();
+            $con->close();
             exit();
-        }
-        else{
-            echo " Username ou password errados!";
+
+        }else {
+            header("location: \PAP_Alex\pg_secundarias/pg_sec_login_error.php");
             exit();
+
         }
     }
 }
+
 ?>

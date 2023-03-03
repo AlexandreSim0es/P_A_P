@@ -46,7 +46,7 @@
               <a class="nav-link" aria-current="page" href="\PAP_Alex\pg_index.php" >INICIO</a>
             </li>
             <li class="nav-item"> 
-              <a class="nav-link " href="\PAP_Alex/pg_login.php">LOGIN</a>
+              <a class="nav-link " href="\PAP_Alex/pg_login.php">LOGIN/REGISTRO</a>
             </li>
           </ul>
         </div>

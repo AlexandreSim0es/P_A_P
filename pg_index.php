@@ -46,25 +46,24 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="pg_index.php" >INICIO</a> </li>
+              <a class="nav-link active" aria-current="page" href="pg_index.php" >INICIO</a></li>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
             </li>
             <?php  if(isset($_SESSION['username'])) {?>
 
-                <li class="nav-item"> <a class="nav-link " href="php_login/logout.php">LOGOUT</a> </li>
+                <li class="nav-item"> <a class="nav-link " href="php_login/logout.php">LOGOUT</a></li>
 
             <?php } else { ?>
 
-                <li class="nav-item"> <a class="nav-link " href="pg_login.php">LOGIN/REGISTRO</a> </li>
+                <li class="nav-item"> <a class="nav-link " href="pg_login.php">LOGIN/REGISTRO</a></li>
             <?php } ?>
           </ul>
         </div>
@@ -75,31 +74,33 @@
 
     <div class="container1 mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo; ?> width="100" height="100"></div>
+        <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="100" height="100"></div>
         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question">
-        <label class="options"><?php echo $jg1; ?>
-                <input type="radio" name="radio">
-                <span class="checkmark"></span>
-            </label>
-            <label class="options"><?php echo $jg2; ?>
-                <input type="radio" name="radio">
-                <span class="checkmark"></span>
-            </label>
-            <label class="options"><?php echo $jg3; ?>
-                <input type="radio" name="radio">
-                <span class="checkmark"></span>
-            </label>
-            <label class="options"><?php echo $jg4; ?>
-                <input type="radio" name="radio">
-                <span class="checkmark"></span>
-            </label>
+    
+        <?php 
+            for($i = 0; $i < count($jogos); $i++) {
+                echo '<label class="options">' . $jogos[$i]['name'] . 
+                      '<input type="radio" name="radio">
+                      <span class="checkmark"></span>
+                      </label>';
+            }
+        ?>
+
         </div>
         <div class="ml-auto mr-sm-5">
-            <button class="btn btn-success">OK</button>
+            <input type="button" name="submit" value="ok"/>
         </div>
     </div>
     <div id="results"></div>  
 </div>
+
+<?php
+
+  if(isset($_POST['submit'])) {
+        exit("oi");
+     }
+
+?>
 
     <!-- Bootstrap core JS-->
 

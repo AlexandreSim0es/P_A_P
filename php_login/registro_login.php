@@ -1,4 +1,6 @@
 <?php   
+    ini_set("display_errors", "1");
+    error_reporting(E_ALL);
     include('conexao_db.php'); 
 
     $username=$_POST['username'];
@@ -17,7 +19,9 @@
         }
 
         if($stmt = $con->prepare('INSERT INTO user (username, email, password) VALUES (?, ?, ?)')){
-        $stmt->bind_param('sss', $_POST['username'], $_POST['email'], $password);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bind_param('sss', $_POST['username'], $_POST['email'], $password_hash);
+        error_log($password_hash, 0);
         $stmt->execute();
         $stmt->close();
 

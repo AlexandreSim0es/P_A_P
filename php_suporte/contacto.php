@@ -1,5 +1,5 @@
 <?php
-     include('\..\php_login/conexao_db.php');    
+     include(__DIR__.'\..\php_login/conexao_db.php');    
         
         $nome=$_POST['nome'];
         $email=$_POST['email'];

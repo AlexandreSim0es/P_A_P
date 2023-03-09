@@ -14,7 +14,7 @@
     <meta name="author" content="" />
 
     <title>LOGIN</title>
-
+    
     <!-- Favicon-->
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -42,8 +42,7 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,10 +55,10 @@
             </li>
             <?php  if(isset($_SESSION['username'])) {?>
                   
-                  <li class="nav-item"> <a class="nav-link" href="php_login/logout.php">LOGOUT</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="php_login/logout.php">LOGOUT</a></li>
               <?php } else { ?>
   
-                  <li class="nav-item"> <a class="nav-link active " href="pg_login.php">LOGIN/REGISTRO</a> </li>
+                  <li class="nav-item"> <a class="nav-link active " href="pg_login.php">LOGIN/REGISTRO</a></li>
             <?php } ?>
           </ul>
         </div>
@@ -88,7 +87,7 @@
         <div class="login">
 
           <form action="php_login/login.php" method="post">
-            <label for="chk"   aria-hidden="true">Login</label>
+            <label for="chk" aria-hidden="true">Login</label>
             <input type="text" name="username" placeholder="Username" required />
             <input type="password" name="password"placeholder="Password" required/>
 

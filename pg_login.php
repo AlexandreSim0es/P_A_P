@@ -55,6 +55,7 @@
             </li>
             <?php  if(isset($_SESSION['username'])) {?>
                   
+                  <li class="nav-item"> <a style="text-transform:uppercase" class="nav-link" href=""><?php echo $_SESSION['username']; ?></a></li>
                   <li class="nav-item"> <a class="nav-link" href="php_login/logout.php">LOGOUT</a></li>
               <?php } else { ?>
   

@@ -11,13 +11,19 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+img{
+  border-radius: 8px;
+	box-shadow: 5px 21px 60px #000;
+  
+}
+
  html {
   height: 100%;
 }  
 
 body{
   background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  overflow: hidden; 
+
 }
 
 .dropdown {
@@ -37,7 +43,7 @@ body{
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+
 }
 
 .dropdown-content {

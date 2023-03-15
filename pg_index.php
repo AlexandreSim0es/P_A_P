@@ -71,25 +71,23 @@
     </nav>
 
     <!-- Page content-->
-
+              
     <div class="container1 mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="100" height="100"></div>
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question">
+        <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question" style="width: 350px;">
     
         <?php 
             for($i = 0; $i < count($jogos); $i++) {
-                echo '<label class="options">' . $jogos[$i]['name'] . 
+                echo '<p><label class="options">' . $jogos[$i]['name'] . 
                       '<input type="radio" name="radio">
                       <span class="checkmark"></span>
-                      </label>';
-            }
+                      </label></p>';
+          }
         ?>
-
+        
         </div>
-        <div class="ml-auto mr-sm-5">
-            <input type="button" name="submit" value="ok"/>
-        </div>
+        
     </div>
     <div id="results"></div>  
 </div>

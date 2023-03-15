@@ -28,7 +28,7 @@
         }
     }
         
-    $nJogos = 4;
+    $nJogos = 5;
 
     $indexes = range(1, countGames($con));
     shuffle($indexes);

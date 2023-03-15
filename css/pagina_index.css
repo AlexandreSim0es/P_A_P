@@ -6,22 +6,21 @@ html {
 
 body{
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-    overflow: hidden; 
+
+}
+
+
+.pl-md-5, .px-md-5 {
+    padding-left: 0rem!important;
 }
 
 .container1{
-    background-color: #555;
-    color: #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    font-family: 'Montserrat', sans-serif;
     max-width: 700px;
     margin: auto;
-    width: 80%;
+    width: 29.5%;
     padding: 8px;
-    margin-top: 30rem !important;
+    margin-top: 2rem !important;
     margin-bottom: 30rem !important;
-
 }
 
 .container1 > p{
@@ -29,12 +28,19 @@ body{
 }
 
 .question{
-    width: 75%;
+    width: 10%;
 }
 
 .options{
     position: relative;
     padding-left: 40px;
+    padding-top: 20px;
+    line-height: 0;
+    color: #ddd;
+}
+
+.ml-md-3, .mx-md-3 {
+    margin-left: 0.3rem!important;
 }
 
 #options label{
@@ -50,7 +56,7 @@ body{
 
 .checkmark {
     position: absolute;
-    top: -1px;
+    top: 20px;
     left: 0;
     height: 25px;
     width: 25px;
@@ -65,7 +71,7 @@ body{
 
 .options .checkmark:after{
     content: "";
-	width: 10px;
+	width: 100px;
     height: 10px;
     display: block;
 	background: white;
@@ -108,4 +114,3 @@ body{
         word-spacing: 2px;
     } 
 }
-

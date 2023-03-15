@@ -45,6 +45,9 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="\PAP_Alex\pg_index.php" >INICIO</a>
             </li>
+            <li class="nav-item"> 
+              <a class="nav-link " href="\PAP_Alex/pg_login.php">LOGIN/REGISTRO</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -102,12 +105,13 @@
     <main>
       <section>
         <div class="alert alert-2-secondary">
-          <h3 class="alert-title">Obrigado por nos contactar!</h3>
-          <p class="alert-content">Foi enviado para o seu email mais informações!</p>
-          <p class="alert-content"><a href="\PAP_Alex/pg_suporte.php">Voltar</a></p>
+          <h3 class="alert-title">A password tem de ter mais de 5 carateres!</h3>
+          <p class="alert-content">Insira uma password forte!</p>
+          <p class="alert-content"><a href="\PAP_Alex/pg_login.php">Tente novamente</a></p>
         </div>
       </section>
     </main>
+
 
     <!-- Bootstrap core JS-->
 

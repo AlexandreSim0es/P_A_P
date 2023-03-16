@@ -107,10 +107,10 @@
 
     if (chosen) {
       if (chosen === "<?php echo $jg_certo['name']; ?>") {
-        alert("Você escolheu a opção correta: " + chosen);
+        alert("Você escolheu a opção certa: " + chosen);
         window.location.reload();
       } else {
-        alert("Você escolheu a opção incorreta: " + chosen);
+        alert("Você escolheu a opção errada: " + chosen);
       }
     } 
 

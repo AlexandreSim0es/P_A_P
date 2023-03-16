@@ -44,9 +44,7 @@
 
     $con->close();
 
-    if(isset($_POST['submit'])) {
-        exit("oi");
-      }
+    
 
 
 ?>

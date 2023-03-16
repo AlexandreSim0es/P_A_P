@@ -59,7 +59,7 @@
                   <li class="nav-item"> <a class="nav-link" href="php_login/logout.php">LOGOUT</a></li>
               <?php } else { ?>
   
-                  <li class="nav-item"> <a class="nav-link active " href="pg_login.php">LOGIN/REGISTRO</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a></li>
             <?php } ?>
           </ul>
         </div>

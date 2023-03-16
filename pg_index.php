@@ -75,7 +75,7 @@
     <div class="container1 mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
         <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question" style="width: 350px;">
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question" style="width: 450px;">
     
         <?php 
             for($i = 0; $i < count($jogos); $i++) {

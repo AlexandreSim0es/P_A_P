@@ -9,6 +9,18 @@ body{
 
 }
 
+img{
+    
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+    letter-spacing: 0em;
+    word-break: break-word;
+    hyphens: auto;
+}
+
 .pl-md-5, .px-md-5 {
     padding-left: 0rem!important;
 }
@@ -18,8 +30,9 @@ body{
     margin: auto;
     width: 29.5%;
     padding: 8px;
-    margin-top: 0rem !important;
+    margin-top: 1rem !important;
     margin-bottom: 30rem !important; 
+    word-wrap: break-word;
 }
 
 .container1 > p{
@@ -33,7 +46,7 @@ body{
 .options{
     position: relative;
     padding-left: 40px;
-    padding-top: 24px;
+    padding-top: 25px;
     line-height: 0;
     word-wrap: break-word;
     color: #ddd;

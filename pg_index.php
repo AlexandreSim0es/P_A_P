@@ -85,7 +85,7 @@
                       </label></p>';
           }
         ?>
-        <button onclick="submit()">Submeter</button>
+        <button class="space-btn" onclick="submit()">Submeter</button>
         </div>
     </div>
     <div id="results"></div>  

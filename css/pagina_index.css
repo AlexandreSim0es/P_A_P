@@ -30,7 +30,7 @@ p {
     margin: auto;
     width: 29.5%;
     padding: 8px;
-    margin-top: 1rem !important;
+    margin-top: 0rem !important;
     margin-bottom: 30rem !important; 
     word-wrap: break-word;
 }
@@ -128,3 +128,109 @@ p {
     } 
 }
 
+@import url(https://fonts.googleapis.com/css?family=Electrolize);
+ * {
+	 box-sizing: border-box;
+}
+
+ .space-btn {
+	 position: relative;
+	 font-family: 'Electrolize', sans-serif;
+	 font-size: 1em;
+	 text-transform: uppercase;
+	 letter-spacing: 0.125em;
+	 line-height: 1;
+	 color: #ffffff;
+	 margin: 0;
+	 padding: 1em;
+	 background: none;
+	 border: none;
+	 cursor: pointer;
+     margin-top: 3rem !important;
+     margin-left: 6rem!important;
+
+}
+ .space-btn:hover {
+	 color: #ffffff;
+}
+ .space-btn:focus {
+	 color: #ffffff;
+	 outline: none;
+}
+ .space-btn:active {
+	 color: #ffffff;
+}
+ .space-btn:before, .space-btn:after {
+	 content: "";
+	 display: block;
+	 position: absolute;
+	 width: 100%;
+	 height: 1px;
+}
+ .space-btn:before {
+	 top: 0;
+	 left: 0;
+	 box-shadow: inset 1px 1px 0 0 #ffffff;
+}
+ .space-btn:after {
+	 right: 0;
+	 bottom: 0;
+	 box-shadow: inset -1px -1px 0 0 #ffffff;
+}
+ .space-btn:hover:before {
+	 animation: hoverShadowBefore 1s forwards;
+}
+ .space-btn:hover:after {
+	 animation: hoverShadowAfter 1s forwards;
+}
+ @keyframes hoverShadowBefore {
+	 0% {
+		 width: 100%;
+		 height: 1px;
+		 top: 0;
+		 left: 0;
+	}
+	 33% {
+		 width: 1px;
+		 height: 100%;
+		 top: 0;
+		 left: 0;
+	}
+	 66% {
+		 width: 1px;
+		 height: 1px;
+		 top: calc(100% - 1px);
+		 left: 0;
+	}
+	 100% {
+		 width: 100%;
+		 height: 1px;
+		 top: calc(100% - 1px);
+		 left: 0;
+	}
+}
+ @keyframes hoverShadowAfter {
+	 0% {
+		 width: 100%;
+		 height: 1px;
+	}
+	 33% {
+		 width: 1px;
+		 height: 100%;
+		 bottom: 0;
+		 right: 0;
+	}
+	 66% {
+		 width: 1px;
+		 height: 1px;
+		 bottom: calc(100% - 1px);
+		 right: 0;
+	}
+	 100% {
+		 width: 100%;
+		 height: 1px;
+		 bottom: calc(100% - 1px);
+		 right: 0;
+	}
+}
+ 

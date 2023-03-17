@@ -108,6 +108,20 @@
     if (chosen) {
       if (chosen === "<?php echo $jg_certo['name']; ?>") {
         alert("Você escolheu a opção certa: " + chosen);
+
+        if (chosen) {
+  if (chosen === "<?php echo $jg_certo['name']; ?>") {
+    alert("Você escolheu a opção certa: " + chosen);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'processar_pontos.php');
+    xhr.send();
+    window.location.reload();
+  } else {
+    alert("Você escolheu a opção errada: " + chosen);
+  }
+}
+
+
         window.location.reload();
       } else {
         alert("Você escolheu a opção errada: " + chosen);

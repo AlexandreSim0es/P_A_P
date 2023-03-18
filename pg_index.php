@@ -74,7 +74,7 @@
               
     <div class="container1 mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5">><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
+        <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question" style="width: 550px;">
     
         <?php 
@@ -95,40 +95,31 @@
 
 <script>
 
-  function submit() {
-    var choices = document.getElementsByName("opcao");
-    var chosen = null;
-    for (var i = 0; i < choices.length; i++) {
-      if (choices[i].checked) {
-        chosen = choices[i].parentElement.innerText.trim();
-        break;
+    // recupera a pontuação do localStorage, ou define como 0 caso não exista
+    var pontuacao = localStorage.getItem("pontuacao") ? parseInt(localStorage.getItem("pontuacao")) : 0;
+
+    function submit() {
+      var choices = document.getElementsByName("opcao");
+      var chosen = null;
+      for (var i = 0; i < choices.length; i++) {
+        if (choices[i].checked) {
+          chosen = choices[i].parentElement.innerText.trim();
+          break;
+        }
+      }
+
+      if (chosen) {
+        if (chosen === "<?php echo $jg_certo['name']; ?>") {
+          pontuacao += 10; // incrementa a pontuação
+          localStorage.setItem("pontuacao", pontuacao); // armazena a pontuação no localStorage
+          alert("Você escolheu a opção certa: " + chosen + "\nSua pontuação é: " + pontuacao);
+          window.location.reload();
+        } else {
+          alert("Você escolheu a opção errada: " + chosen);
+        }
       }
     }
 
-    if (chosen) {
-      if (chosen === "<?php echo $jg_certo['name']; ?>") {
-        alert("Você escolheu a opção certa: " + chosen);
-
-        if (chosen) {
-  if (chosen === "<?php echo $jg_certo['name']; ?>") {
-    alert("Você escolheu a opção certa: " + chosen);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'processar_pontos.php');
-    xhr.send();
-    window.location.reload();
-  } else {
-    alert("Você escolheu a opção errada: " + chosen);
-  }
-}
-
-
-        window.location.reload();
-      } else {
-        alert("Você escolheu a opção errada: " + chosen);
-      }
-    } 
-
-  }
 
 </script>
 

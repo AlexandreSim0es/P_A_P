@@ -44,10 +44,51 @@
 
     $con->close();
 
-    
-
-
 ?>
+
+<script>
+
+    function submit() {
+    var choices = document.getElementsByName("opcao");
+    var chosen = null;
+    for (var i = 0; i < choices.length; i++) {
+        if (choices[i].checked) {
+        chosen = choices[i].parentElement.innerText.trim();
+        break;
+        }
+    }
+
+    if (chosen) {
+        if (chosen === "<?php echo $jg_certo['name']; ?>") {
+        // incrementa a pontuação
+        pontuacao += 10;
+        // envia a pontuação para o servidor usando AJAX
+        $.ajax({
+            url: "guardar_pontuacao.php",
+            type: "POST",
+            data: {
+            pontuacao: pontuacao
+            },
+            success: function(response) {
+            // a resposta do servidor pode ser tratada aqui
+            alert(response);
+            window.location.reload();
+            },
+            error: function(xhr) {
+            // tratar erros aqui
+            alert("Erro ao enviar pontuação para o servidor.");
+            }
+        });
+        } else {
+        alert("Você escolheu a opção errada: " + chosen);
+        }
+    }
+    }
+
+
+</script>
+
+
 
 
 

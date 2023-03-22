@@ -10,7 +10,7 @@ body{
 }
 
 img{
-   
+	filter: blur(4px);
 }
 
 p {

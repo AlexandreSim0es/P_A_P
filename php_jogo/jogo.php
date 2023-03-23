@@ -60,33 +60,26 @@
 
     if (chosen) {
         if (chosen === "<?php echo $jg_certo['name']; ?>") {
-        // incrementa a pontuação
-        pontuacao += 10;
-        // envia a pontuação para o servidor usando AJAX
-        $.ajax({
-            url: "guardar_pontuacao.php",
-            type: "POST",
-            data: {
-            pontuacao: pontuacao
-            },
-            success: function(response) {
-            // a resposta do servidor pode ser tratada aqui
-            alert(response);
+            alert("Você escolheu a opção certa: " + chosen);
+
+            <?php
+                if($stmt = $con->prepare('INSERT INTO pontos SET pontos_atuais += 10 ')){
+                    $stmt->execute();
+                    $stmt->close();
+                }
+
+                $con->close();
+            ?>
+
             window.location.reload();
-            },
-            error: function(xhr) {
-            // tratar erros aqui
-            alert("Erro ao enviar pontuação para o servidor.");
-            }
-        });
         } else {
-        alert("Você escolheu a opção errada: " + chosen);
+            alert("Você escolheu a opção errada: " + chosen);
         }
     }
     }
 
-
 </script>
+
 
 
 

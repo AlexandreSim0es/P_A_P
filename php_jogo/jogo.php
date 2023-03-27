@@ -58,11 +58,12 @@
         }
     }
 
+    
     if (chosen) {
         if (chosen === "<?php echo $jg_certo['name']; ?>") {
 
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'php_jogo/inserir_pontos.php', true);
+            xhr.open('GET', 'php_jogo/pontos.php', true);
             xhr.send();
 
             alert("Você escolheu a opção certa: " + chosen);
@@ -74,7 +75,6 @@
     }
 
 </script>
-
 
 
 

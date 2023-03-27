@@ -60,22 +60,17 @@
 
     if (chosen) {
         if (chosen === "<?php echo $jg_certo['name']; ?>") {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'php_jogo/inserir_pontos.php', true);
+            xhr.send();
+
             alert("Você escolheu a opção certa: " + chosen);
-
-            <?php
-                if($stmt = $con->prepare('INSERT INTO pontos SET pontos_atuais += 10 ')){
-                    $stmt->execute();
-                    $stmt->close();
-                }
-
-                $con->close();
-            ?>
-
             window.location.reload();
+        }
         } else {
             alert("Você escolheu a opção errada: " + chosen);
         }
-    }
     }
 
 </script>

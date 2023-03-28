@@ -71,7 +71,19 @@
     </nav>
 
     <!-- Page content-->
-              
+
+    <button id="btn-comecar"  >Começar</button>
+
+    <script>
+
+      document.getElementById('btn-comecar').addEventListener('click', function() {
+          document.getElementById('btn-comecar').remove();
+          document.getElementById('jogo-container').style.display = 'block';
+      });
+
+	</script>
+
+    <div id="jogo-container" style="display:none;"> 
     <div class="container1 mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
         <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
@@ -88,7 +100,7 @@
         <button class="space-btn" onclick="submit()">Submeter</button>
         </div>
     </div>
-    <div id="results"></div>  
+ </div>
 </div>
 
     <!-- Bootstrap core JS-->

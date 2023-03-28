@@ -5,8 +5,7 @@
 
     session_start();
 
-    if (isset($_SESSION['username'])) {
-        // Obtém o ID do usuário
+    if(isset($_SESSION['username'])) {
         if ($stmt = $con->prepare("SELECT id FROM user WHERE username = ?")) {
             $stmt->bind_param("s", $_SESSION['username']);
             $stmt->execute();
@@ -14,36 +13,24 @@
             $stmt->fetch();
             $stmt->close();
 
-            // Se o ID foi encontrado, atualiza os pontos do usuário
             if ($id) {
-                // Obtém os pontos atuais do usuário
-                if ($stmt = $con->prepare("SELECT pontos_atuais, pontos_max FROM user WHERE id = ?")) {
+                if ($stmt = $con->prepare('UPDATE user SET pontos_atuais = pontos_atuais + 10 WHERE id = ?')) {
                     $stmt->bind_param("i", $id);
                     $stmt->execute();
-                    $stmt->bind_result($pontos_atuais, $pontos_max);
-                    $stmt->fetch();
                     $stmt->close();
-
-                    // Calcula os novos pontos máximos
-                    if ($pontos_atuais > $pontos_max) {
-                        $pontos_max = $pontos_atuais;
-                    }
-
-                    // Atualiza os pontos do usuário
-                    if ($stmt = $con->prepare("UPDATE user SET pontos_atuais = ?, pontos_max = ? WHERE id = ?")) {
-                        $stmt->bind_param("iii", $pontos_atuais, $pontos_max, $id);
-                        $stmt->execute();
-                        $stmt->close();
-                        $con->close();
-                    }
                 }
             }
+
+            if ($pontos_atuais > $pontos_max) {
+                if ($stmt = $con->prepare("UPDATE pontos SET pontos_max = ? WHERE user_id = ?")) {
+                    $stmt->bind_param("ii", $pontos_atuais, $id);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            }
+
         }
     }
 
-
-
     
-    
-
 ?>

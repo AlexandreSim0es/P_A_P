@@ -57,7 +57,6 @@
         break;
         }
     }
-
     
     if (chosen) {
         if (chosen === "<?php echo $jg_certo['name']; ?>") {

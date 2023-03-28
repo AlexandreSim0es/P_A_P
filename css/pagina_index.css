@@ -6,6 +6,7 @@ html {
 
 body{
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	overflow: hidden;
 
 }
 
@@ -192,6 +193,66 @@ p {
 	 animation: hoverShadowAfter 1s forwards;
 }
 
+
+.space-btn2 {
+	position: relative;
+	font-family: 'Electrolize', sans-serif;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	letter-spacing: 0.125em;
+	line-height: 1;
+	color: #ffffff;
+	margin: 0;
+	padding: 1em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-top: 25.5rem !important;
+	margin-left: 54rem!important;
+}
+
+.space-btn2:hover {
+	color: #ffffff;
+}
+
+.space-btn2:focus {
+	color: #ffffff;
+	outline: none;
+}
+
+.space-btn2:active {
+	color: #ffffff;
+}
+
+.space-btn2:before, .space-btn2:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 1px;
+}
+
+.space-btn2:before {
+	top: 0;
+	left: 0;
+	box-shadow: inset 1px 1px 0 0 #ffffff;
+}
+
+.space-btn2:after {
+	right: 0;
+	bottom: 0;
+	box-shadow: inset -1px -1px 0 0 #ffffff;
+}
+
+.space-btn2:hover:before {
+	animation: hoverShadowBefore 1s forwards;
+}
+
+.space-btn2:hover:after {
+	animation: hoverShadowAfter 1s forwards;
+}
+
+
  @keyframes hoverShadowBefore {
 	 0% {
 		 width: 100%;
@@ -244,3 +305,20 @@ p {
 	}
 }
 
+#jogo-container {
+	animation: slideInRight 2s ease-in-out forwards;
+  }
+  
+  @keyframes slideInRight {
+	from {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+  
+
+  

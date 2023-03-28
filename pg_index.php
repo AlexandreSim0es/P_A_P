@@ -38,7 +38,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -72,7 +72,7 @@
 
     <!-- Page content-->
 
-    <button id="btn-comecar"  >Começar</button>
+    <button id="btn-comecar" class="space-btn2">Começar</button>
 
     <script>
 

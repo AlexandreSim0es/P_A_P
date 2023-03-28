@@ -66,7 +66,7 @@
             xhr.send();
 
             alert("Você escolheu a opção certa: " + chosen);
-            window.location.reload();
+
         }
         } else {
             alert("Você escolheu a opção errada: " + chosen);

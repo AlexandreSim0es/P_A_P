@@ -13,7 +13,7 @@
 
         if (mysqli_num_rows($result)==1 && password_verify($password, $result->fetch_assoc()['password']) === true){
             
-            header("location: \PAP_Alex\pg_index.php    ");
+            header("location: \PAP_Alex\pg_index.php");
 
             session_start();
             $_SESSION['username'] = $username;

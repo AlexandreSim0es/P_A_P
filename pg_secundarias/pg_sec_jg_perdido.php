@@ -28,7 +28,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#"></a>
+      <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -79,7 +79,7 @@
       background: none;
       border: none;
       cursor: pointer;
-      margin-top: 1.5rem !important;
+      margin-top: 1rem !important;
       margin-left: 51rem!important;
     }
 

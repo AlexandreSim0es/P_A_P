@@ -65,7 +65,6 @@
                 alert("Escolha uma das opções!");
                 exit();
         }
-
             if (chosen === "<?php echo $jg_certo['name']; ?>") {
 
                 var xhr = new XMLHttpRequest();
@@ -73,7 +72,9 @@
                 xhr.send();
 
                 alert("Você escolheu a opção certa: " + chosen);
+
             } else {
+
                 op_errada++; 
 
                 alert("Você escolheu a opção errada: " + chosen);
@@ -81,6 +82,7 @@
                 if (op_errada === 2) {
                     alert("Você escolheu a opção errada duas vezes. Você perdeu o jogo!");
                     window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
+                    
                 }
             }
         }

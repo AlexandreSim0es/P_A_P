@@ -76,12 +76,14 @@
 
     <script>
 
-      document.getElementById('btn-comecar').addEventListener('click', function() {
-          document.getElementById('btn-comecar').remove();
-          document.getElementById('jogo-container').style.display = 'block';
-      });
+        document.getElementById('btn-comecar').addEventListener('click', function() {
+        document.getElementById('btn-comecar').remove();
+        document.getElementById('jogo-container').style.display = 'block';
+        });
 
-	</script>
+
+    </script>
+
 
     <div id="jogo-container" style="display:none;"> 
     <div class="container1 mt-sm-5 my-1">

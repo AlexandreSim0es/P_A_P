@@ -46,35 +46,46 @@
 
 ?>
 
+
 <script>
 
+    var op_errada = 0; 
+
     function submit() {
-    var choices = document.getElementsByName("opcao");
-    var chosen = null;
-    for (var i = 0; i < choices.length; i++) {
-        if (choices[i].checked) {
-        chosen = choices[i].parentElement.innerText.trim();
-        break;
+        var choices = document.getElementsByName("opcao");
+        var chosen = null;
+        for (var i = 0; i < choices.length; i++) {
+            if (choices[i].checked) {
+                chosen = choices[i].parentElement.innerText.trim();
+                break;
+            }
         }
-    }
-    
-    if (chosen) {
-        if (chosen === "<?php echo $jg_certo['name']; ?>") {
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'php_jogo/pontos.php', true);
-            xhr.send();
-
-            alert("Você escolheu a opção certa: " + chosen);
-
+        if (!chosen) { 
+                alert("Escolha uma das opções!");
+                exit();
         }
-        } else {
-            alert("Você escolheu a opção errada: " + chosen);
+
+            if (chosen === "<?php echo $jg_certo['name']; ?>") {
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'php_jogo/pontos.php', true);
+                xhr.send();
+
+                alert("Você escolheu a opção certa: " + chosen);
+            } else {
+                op_errada++; 
+
+                alert("Você escolheu a opção errada: " + chosen);
+
+                if (op_errada === 2) {
+                    alert("Você escolheu a opção errada duas vezes. Você perdeu o jogo!");
+                    window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
+                }
+            }
         }
-    }
 
 </script>
-
 
 
 

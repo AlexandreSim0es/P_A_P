@@ -22,8 +22,7 @@
             }
 
             if ($pontos_atuais > $pontos_max) {
-                if ($stmt = $con->prepare("UPDATE pontos SET pontos_max = ? WHERE user_id = ?")) {
-                    $stmt->bind_param("ii", $pontos_atuais, $id);
+                if ($stmt = $con->prepare("UPDATE pontos SET pontos_max = pontos_atuais")) {
                     $stmt->execute();
                     $stmt->close();
                 }

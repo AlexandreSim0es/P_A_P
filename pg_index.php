@@ -74,17 +74,6 @@
 
     <button id="btn-comecar" class="space-btn2">Começar</button>
 
-    <script>
-
-        document.getElementById('btn-comecar').addEventListener('click', function() {
-        document.getElementById('btn-comecar').remove();
-        document.getElementById('jogo-container').style.display = 'block';
-        });
-
-
-    </script>
-
-
     <div id="jogo-container" style="display:none;"> 
     <div class="container1 mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
@@ -105,6 +94,7 @@
  </div>
 </div>
 
+
     <!-- Bootstrap core JS-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -113,5 +103,21 @@
 
     <script type="text/javascript" src="js/script.js"></script>
     
+    <script>
+
+    if (localStorage.getItem('jg_comecou') === 'true') {
+        document.getElementById('btn-comecar').style.display = 'none';
+        document.getElementById('jogo-container').style.display = 'block';
+    }
+
+        document.getElementById('btn-comecar').addEventListener('click', function() {
+          localStorage.setItem('jg_comecou', 'true');
+
+          document.getElementById('btn-comecar').style.display = 'none';
+          document.getElementById('jogo-container').style.display = 'block';
+    });
+
+    </script>
+
   </body>
 </html>

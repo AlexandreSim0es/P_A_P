@@ -11,7 +11,7 @@ body{
 }
 
 img{
-	filter: blur(7px);
+	
 }
 
 p {
@@ -207,7 +207,7 @@ p {
 	background: none;
 	border: none;
 	cursor: pointer;
-	margin-top: 25.5rem !important;
+	margin-top: 24.5rem !important;
 	margin-left: 54rem!important;
 }
 

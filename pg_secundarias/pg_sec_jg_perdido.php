@@ -28,7 +28,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-      <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
+        <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -36,17 +36,16 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="\PAP_Alex\pg_index.php" >INICIO</a>
+              <a class="nav-link" aria-current="page" href="../pg_index.php" >INICIO</a></li>
             </li>
-            <li class="nav-item"> 
-              <a class="nav-link " href="\PAP_Alex/pg_login.php">LOGIN/REGISTRO</a>
+            <li class="nav-item">
+              <a class="nav-link" href="../pg_suporte.php">SUPORTE</a>
             </li>
           </ul>
         </div>
@@ -80,7 +79,7 @@
       border: none;
       cursor: pointer;
       margin-top: 1rem !important;
-      margin-left: 51rem!important;
+      margin-left: 49.5rem!important;
     }
 
     .space-btn2:hover {

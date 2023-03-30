@@ -46,7 +46,6 @@
 
 ?>
 
-
 <script>
 
     var op_errada = 0; 
@@ -62,32 +61,39 @@
         }
 
         if (!chosen) { 
-                alert("Escolha uma das opções!");
-                exit();
+            alert("Escolha uma das opções!");
+            exit();
         }
-            if (chosen === "<?php echo $jg_certo['name']; ?>") {
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'php_jogo/pontos.php', true);
-                xhr.send();
+        if (chosen === "<?php echo $jg_certo['name']; ?>") {
 
-                alert("Você escolheu a opção certa: " + chosen);
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'php_jogo/pontos.php', true);
+            xhr.send();
 
-            } else {
+            alert("Você escolheu a opção certa: " + chosen);
 
-                op_errada++; 
+            document.getElementById('jogo-container').style.display = 'block'; 
 
-                alert("Você escolheu a opção errada: " + chosen);
+            window.location.reload();
+            
+        } else {
+            op_errada++; 
 
-                if (op_errada === 2) {
-                    alert("Você escolheu a opção errada duas vezes. Você perdeu o jogo!");
-                    window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
-                    
-                }
+            alert("Você escolheu a opção errada: " + chosen);
+
+            if (op_errada === 2) {
+                alert("Você escolheu a opção errada duas vezes. Você perdeu o jogo!");
+                window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
+
+                localStorage.clear();
             }
         }
+    }
 
 </script>
+
+
 
 
 

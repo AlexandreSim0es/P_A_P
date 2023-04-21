@@ -72,50 +72,41 @@
 
     <!-- Page content-->
 
-    <button id="btn-comecar" class="space-btn2">Começar</button>
+    <button id="btn-comecar" class="space-btn2" style="display:none;">Começar</button>
 
-    <div id="jogo-container" style="display:none;"> 
-    <div class="container1 mt-sm-5 my-1">
-    <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5"><img src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question" style="width: 550px;">
-    
-        <?php 
-            for($i = 0; $i < count($jogos); $i++) {
-                echo '<p><label class="options" id="opcao'.$i.'">' . $jogos[$i]['name'] . 
-                      '<input type="radio" name="opcao">
-                      <span class="checkmark"></span>
-                      </label></p>';
-          }
-        ?>
-        <button class="space-btn" onclick="submit()">Submeter</button>
-        </div>
-    </div>
- </div>
+      <div id="jogo-container" style="display:block;"> 
+      <div class="container1 mt-sm-5 my-1">
+      <div class="question ml-sm-5 pl-sm-5 pt-2">
+          <div class="py-2 h5"><img id="game_cover_img" src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?> width="350" height="450"></div>
+          <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="question" style="width: 550px;">
+      
+          <?php 
+              for($i = 0; $i < count($jogos); $i++) {
+                  echo '<p><label class="options" id="opcao'.$i.'">' . $jogos[$i]['name'] . 
+                        '<input type="radio" name="opcao">
+                        <span class="checkmark"></span>
+                        </label></p>';
+            }
+          ?>
+          <button class="space-btn" onclick="submit()">Submeter</button>
+          </div>
+      </div>
+  </div>
 </div>
-
-
-    <!-- Bootstrap core JS-->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core theme JS-->
-
-    <script type="text/javascript" src="js/script.js"></script>
     
     <script>
 
-    if (localStorage.getItem('jg_comecou') === 'true') {
+      if (localStorage.getItem('jg_comecou') !== 'true') {
+          document.getElementById('btn-comecar').style.display = 'block';
+          document.getElementById('jogo-container').style.display = 'none';
+      }
+      
+      document.getElementById('btn-comecar').addEventListener('click', function() {
+        localStorage.setItem('jg_comecou', 'true');
+
         document.getElementById('btn-comecar').style.display = 'none';
         document.getElementById('jogo-container').style.display = 'block';
-    }
-
-        document.getElementById('btn-comecar').addEventListener('click', function() {
-          localStorage.setItem('jg_comecou', 'true');
-
-          document.getElementById('btn-comecar').style.display = 'none';
-          document.getElementById('jogo-container').style.display = 'block';
-    });
+      });
 
     </script>
 

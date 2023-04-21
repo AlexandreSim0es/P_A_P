@@ -304,8 +304,8 @@ p {
 		 right: 0;
 	}
 }
-
-#jogo-container {
+  
+  #jogo-container {
 	opacity: 0;
 	transform: scale(0.5);
 	animation: scaleUp 1s forwards;
@@ -321,6 +321,4 @@ p {
 	  transform: scale(1);
 	}
   }
-  
-
   

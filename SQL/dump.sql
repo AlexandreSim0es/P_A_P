@@ -10,7 +10,13 @@
       name VARCHAR(255) NOT NULL UNIQUE,
       cover VARCHAR(1000) NOT NULL,
       url VARCHAR(1000) NOT NULL
-  );
+  ); 
+
+  CREATE TABLE IF NOT EXISTS currentGame (
+    id INT PRIMARY KEY,
+    game_id INT,
+    choice INT
+  )
 
 
   CREATE TABLE IF NOT EXISTS suporte (

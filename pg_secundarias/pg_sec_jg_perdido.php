@@ -58,7 +58,7 @@
 
     h1 {
       display: block;
-      margin-top: 8em;
+      margin-top: 5em;
       margin-bottom: 0.67em;
       margin-left: 0;
       margin-right: 0;
@@ -78,8 +78,6 @@
       background: none;
       border: none;
       cursor: pointer;
-      margin-top: 1rem !important;
-      margin-left: 49.5rem!important;
     }
 
     .space-btn2:hover {
@@ -177,10 +175,14 @@
     }
 
     </style>
+    <div class="container-fluid flex-container" style="margin-top: 40vh">
+          <h1 class="text-center mx-auto">Fim do Jogo</h1>
 
-    <h1 style="text-align:center">Fim do Jogo</h1>
-
-    <button id="btn-comecar" class="space-btn2">Tentar outra vez</button>
+          <div class="d-flex justify-content-center">
+            <button id="btn-comecar" class="space-btn2">Tentar outra vez</button>
+          </div>
+      </div>
+    
 
     <script>
 

@@ -1,6 +1,7 @@
 <?php 
     include(__DIR__.'\..\php_login/conexao_db.php');
     
+
     function getGame($connection, $id) {
         $jogo = $connection->prepare("SELECT name, cover FROM game where id = ?");
         $jogo->bind_param('i', $id);
@@ -27,11 +28,51 @@
             return $row['counter'];
         }
     }
-        
-    $nJogos = 5;
 
-    $indexes = range(1, countGames($con));
-    shuffle($indexes);
+    function getCurrentGame($connection) {
+        $jogos = $connection->prepare("SELECT game_id, choice FROM currentGame;");
+        $jogos->execute();
+        $result = $jogos->get_result();
+
+        $indexes = [];
+        $choice = 0;
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $indexes[] = $row['game_id'];
+                $choice = $row['choice'];
+            }
+        }
+
+        $jogos->close();
+        $data = [];
+        $data['indexes'] = $indexes;
+        $data['choice'] = $choice;
+        return $data;
+    }
+
+    function loadCurrentGame($connection, $data, $choice) {
+        for($i = 0; $i < count($data); $i++) {
+            $jogo = $connection->prepare("INSERT INTO currentgame (id, game_id, choice) VALUES (?, ?, ?);");
+            $jogo->bind_param('iii', $i, $data[$i], $choice);
+            $jogo->execute();
+            $jogo->close();
+        }
+    }
+
+    
+    
+    $nJogos = 5;
+    $data = getCurrentGame($con);
+    $indexes = $data['indexes'];
+    $escolha = $data['choice'];    
+    
+    if (count($indexes) === 0) {
+        $indexes = range(1, countGames($con));
+        shuffle($indexes);
+        $escolha = rand(0 , $nJogos - 1);
+        loadCurrentGame($con, array_slice($indexes, 0, $nJogos), $escolha);
+    }
 
     $jogos = array();
     
@@ -39,59 +80,12 @@
         $jogos[$i] = getGame($con, $indexes[$i]);
     }
     
-    $escolha = rand(0 , $nJogos - 1);
     $jg_certo = $jogos[$escolha];
 
     $con->close();
 
 ?>
 
-<script>
-
-    var op_errada = 0; 
-
-    function submit() {
-        var choices = document.getElementsByName("opcao");
-        var chosen = null;
-        for (var i = 0; i < choices.length; i++) {
-            if (choices[i].checked) {
-                chosen = choices[i].parentElement.innerText.trim();
-                break;
-            }
-        }
-
-        if (!chosen) { 
-            alert("Escolha uma das opções!");
-            exit();
-        }
-
-        if (chosen === "<?php echo $jg_certo['name']; ?>") {
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'php_jogo/pontos.php', true);
-            xhr.send();
-
-            alert("Você escolheu a opção certa: " + chosen);
-
-            document.getElementById('jogo-container').style.display = 'block'; 
-
-            window.location.reload();
-            
-        } else {
-            op_errada++; 
-
-            alert("Você escolheu a opção errada: " + chosen);
-
-            if (op_errada === 2) {
-                alert("Você escolheu a opção errada duas vezes. Você perdeu o jogo!");
-                window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
-
-                localStorage.clear();
-            }
-        }
-    }
-
-</script>
 
 
 

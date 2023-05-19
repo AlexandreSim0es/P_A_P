@@ -68,18 +68,6 @@ session_start();
     </div>
   </nav>
 
-  <!-- Page content-->
-
-  <!-- 
-    <div id="center1">
-      <div id="title1">
-        PONTOS ATUAIS:
-      </div>
-      <div id="score1">
-        0
-      </div>
-    </div>
-      -->
       <div class="container-fluid" id="btn-comecar" style="display:none;">
       <div class="d-flex justify-content-center">
           <button class="space-btn2" >Começar</button>
@@ -110,8 +98,13 @@ session_start();
 </div>
 </div>
 </div>
-  
 
+<?php if (isset($_SESSION['username']) != true) { ?>
+
+  <p style="color:white;" >Pontos Atuais: <span id="pontos-atuais"></span></p>
+  <p style="color:white;">Pontos Máximos: <span id="pontos-max"></span></p>
+
+<?php } ?>
 
 <!--
   <div class="container1 mt-sm-5 my-1 d-flex align-items-center justify-content-center" id="game_container">
@@ -138,17 +131,6 @@ session_start();
   </div>
         -->
 
-  <!--
-    <div id="center2">
-      <div id="title2">
-        PONTOS MAX:
-      </div>
-      <div id="score2">
-        0
-      </div>
-    </div>
-          -->
-
   <script>
 
     var op_errada = 0;
@@ -161,7 +143,6 @@ session_start();
     }
 
     function submit() {
-
       var choices = document.getElementsByName("opcao");
       var chosen = null;
       let image = document.getElementById('game_cover_img');
@@ -178,70 +159,75 @@ session_start();
       }
 
       if (chosen === "<?php echo $jg_certo['name']; ?>") {
-        deleteCurrentGame();
+          deleteCurrentGame();
 
-        choices[i].parentElement.classList.add("opcao-certa");
-        image.classList.remove('opcao-errada');
-        image.classList.add('opcao-certa');
-        
+          choices[i].parentElement.classList.add("opcao-certa");
+          image.classList.remove('opcao-errada');
+          image.classList.add('opcao-certa');
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'php_jogo/pontos.php', true);
-        xhr.onreadystatechange = () => { };
-        xhr.send();
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'php_jogo/pontos_atuais.php', true);
+          xhr.onreadystatechange = () => {};
+          xhr.send();
 
+          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
+          pontos_atuais += 10;
+          localStorage.setItem('pontos_atuais', pontos_atuais);
 
         setTimeout( ()=> window.location.reload(), 1000);
 
       } else {
-        op_errada++;
+          op_errada++;
 
-        choices[i].parentElement.classList.add("opcao-errada");
-        image.classList.add('opcao-errada');
-        image.classList.remove('opcao-certa');
+          choices[i].parentElement.classList.add("opcao-errada");
+          image.classList.add('opcao-errada');
+          image.classList.remove('opcao-certa');
 
-        if (op_errada === 2) {
+      if (op_errada === 2) {
+
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', 'php_jogo/pontos_max.php', true);
+          xhr.onreadystatechange = () => { };
+          xhr.send();
+
+          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
+          var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
+
+      if (pontos_atuais > pontos_max) {
+            pontos_max = pontos_atuais;
+          }
+
           window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
           deleteCurrentGame();
           localStorage.clear();
-        }
+
+          pontos_atuais = 0;
+
+          localStorage.setItem('pontos_atuais', pontos_atuais);
+          localStorage.setItem('pontos_max', pontos_max);
+        } 
       }
     }
-
-
 
     if (localStorage.getItem('jg_comecou') !== 'true') {
       document.getElementById('btn-comecar').style.display = 'block';
       document.getElementById('jogo-container').style.display = 'none';
     }
 
-    document.getElementById('btn-comecar').addEventListener('click', function () {
+      document.getElementById('btn-comecar').addEventListener('click', function () {
       localStorage.setItem('jg_comecou', 'true');
 
       document.getElementById('btn-comecar').style.display = 'none';
       document.getElementById('jogo-container').style.display = 'block';
     });
 
-    /*
-    function load_game_instance() {
-      let saved_game_container  = localStorage.getItem('game_container');
-      let game_container = document.getElementById('game_container');
-      
-      if (saved_game_container !== null) {
-        game_container.innerHTML = saved_game_container;
-        return;
-      }
-      localStorage.setItem('game_container', game_container.innerHTML);
-    }
+    var pontos_atuais = localStorage.getItem('pontos_atuais');
+    var pontos_max = localStorage.getItem('pontos_max');
 
+    document.getElementById('pontos-atuais').textContent = pontos_atuais;
+    document.getElementById('pontos-max').textContent = pontos_max;
 
-    window.onload = () => {
-      load_game_instance();
-    }
-    */
-
-
-  </script>
+</script>
 
 </body>
 

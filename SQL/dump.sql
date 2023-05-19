@@ -18,7 +18,6 @@
     choice INT
   )
 
-
   CREATE TABLE IF NOT EXISTS suporte (
       id INT PRIMARY KEY AUTO_INCREMENT,
       nome VARCHAR(255) NOT NULL, 
@@ -26,9 +25,6 @@
       telefone INT(9), 
       mensagem VARCHAR(1000) NOT NULL
   );
-
-  UPDATE user SET pontos_atuais = NULL;
-  UPDATE user SET pontos_max = NULL;
 
   INSERT INTO game (name, cover, url) VALUES ("Grand Theft Auto V", "co2lbd.jpg", "https://www.igdb.com/games/grand-theft-auto-v");
   INSERT INTO game (name, cover, url) VALUES ("The Witcher 3: Wild Hunt", "co1wyy.jpg", "https://www.igdb.com/games/the-witcher-3-wild-hunt");

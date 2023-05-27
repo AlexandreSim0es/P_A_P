@@ -402,4 +402,40 @@ img.opcao-errada {
 	  transform: scale(1);
 	}
   }
-  
+
+  .pontos-label_atuais {
+	  font-size: 28px;
+	  font-weight: bold;
+	  color: white;
+	  margin-bottom: 10px;
+	  position: absolute;
+	  top: 45%;
+	  left: 15%;
+  }
+
+  .pontos-value_atuais {
+	  font-size: 30px;
+	  color: white;
+	  position: absolute;
+	  top: 50%;
+	  left: 18.8%;
+  }
+
+  .pontos-label_max {
+	font-size: 28px;
+	font-weight: bold;
+	color: white;
+	margin-bottom: 10px;
+	position: absolute;
+	top: 45%;
+	left: 75%;
+}
+
+.pontos-value_max {
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 79%;
+}
+

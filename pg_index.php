@@ -1,6 +1,7 @@
 <?php
 include('php_login/login.php');
 include('php_jogo/jogo.php');
+include('php_login/conexao_db.php');
 session_start();
 
 ?>
@@ -99,12 +100,40 @@ session_start();
 </div>
 </div>
 
-<?php if (isset($_SESSION['username']) != true) { ?>
+<?php
 
-  <p style="color:white;" >Pontos Atuais: <span id="pontos-atuais"></span></p>
-  <p style="color:white;">Pontos Máximos: <span id="pontos-max"></span></p>
+  $sql = "SELECT pontos_atuais, pontos_max FROM user WHERE username = ?";
+
+  $stmt = $con->prepare($sql);
+  $stmt->bind_param("s", $_SESSION['username']);
+  $stmt->execute();
+  $stmt->bind_result($pontos_atuais, $pontos_max);
+  $stmt->fetch();
+  $stmt->close();
+
+  if (isset($_SESSION['username']) != true) { ?>
+
+  <p class="pontos-label_atuais">Pontos Atuais: </p>
+  <p class="pontos-value_atuais" id="pontos-atuais"></p>
+
+  <p class="pontos-label_max">Pontos Máximos: </p>
+  <p class="pontos-value_max" id="pontos-max"></p>
+
+<?php }else { ?>
+
+  <p class="pontos-label_atuais">Pontos Atuais:</p>
+  <p class="pontos-value_atuais"><?php echo $pontos_atuais; ?></p>
+
+  <p class="pontos-label_max">Pontos Máximos:</p>
+  <p class="pontos-value_max"><?php echo $pontos_max; ?></p>
 
 <?php } ?>
+
+<script>
+
+  localStorage.setItem('pontos_atuais', '0');
+
+</script>
 
 <!--
   <div class="container1 mt-sm-5 my-1 d-flex align-items-center justify-content-center" id="game_container">
@@ -174,7 +203,7 @@ session_start();
           pontos_atuais += 10;
           localStorage.setItem('pontos_atuais', pontos_atuais);
 
-        setTimeout( ()=> window.location.reload(), 1000);
+          setTimeout( ()=> window.location.reload(), 1000);
 
       } else {
           op_errada++;

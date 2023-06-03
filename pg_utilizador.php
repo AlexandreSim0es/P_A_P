@@ -1,38 +1,33 @@
 <?php
   include('php_login/login.php');
   session_start();
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
   <head>
-
-    <title>SUPORTE</title>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>SUPORTE</title>
-
+    <title>LOGIN</title>
+    
     <!-- Favicon-->
-
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- CSS -->
-
+    
     <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-    <link rel="stylesheet" type="text/css" href="css/pagina_suporte.css" />
+    <link rel="stylesheet" type="text/css" href="css/pagina_utilizador.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
 
   <body>
 
-    <!-- Responsive navbar-->
-
+    <!-- Navbar responsiva-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
       <div class="container">
         <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
@@ -66,54 +61,12 @@
         </div>
       </div>
     </nav>
-    
-    <!-- Page content-->
 
-          <div class="row">
-              <h3 style="text-align:center">Contacto</h3>
-          </div>
-          
-          <div class="container">
-          <form action="php_suporte/contacto.php" method="post">
-        <div class="row input-container">
-            <div class="col-xs-12">
-              <div class="styled-input wide">
-                <input type="text" name="nome" id="nome" required />
-                <label>Nome</label> 
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <div class="styled-input">
-                <input type="text" name="email" id="email" required />
-                <label>Email</label> 
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              <div class="styled-input" style="float:right;">
-                <input type="text" name="telefone" id="telefone"required />
-                <label>Telefone</label> 
-              </div>
-            </div>
-            <div class="col-xs-12">
-              <div class="styled-input wide">
-                <textarea type="text" name="mensagem" id="mensagem"required></textarea>
-                <label>Mensagem</label>
-              </div>
-            </div>
-            <form action="php_suporte/enviaremail.php" method="post">
-            <div class="col-xs-12">
-              <button class="btn-lrg submit-btn">Enviar</button>
-            </div>
-            </form>
-        </div>
-        </form>   
-      </div>     
+    <!-- Conteudo da pagina -->
 
     <!-- Bootstrap core JS-->
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core theme JS-->
 
     <script src="js/scripts.js"></script>
 

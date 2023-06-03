@@ -16,8 +16,6 @@ session_start();
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
-
   <title>INICIO</title>
 
   <!-- Favicon-->
@@ -27,9 +25,7 @@ session_start();
   <!-- CSS -->
 
   <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-
   <link rel="stylesheet" type="text/css" href="css/pagina_index.css" />
-
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
 </head>
@@ -38,36 +34,42 @@ session_start();
 
   <!-- Responsive navbar-->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="pg_index.php">INICIO</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
-          </li>
-          <?php if (isset($_SESSION['username'])) { ?>
-
-            <li class="nav-item"> <a style="text-transform:uppercase" class="nav-link" class="dropbtn" href="">
-                <?php echo $_SESSION['username']; ?>
-              </a></li>
-            <li class="nav-item"> <a class="nav-link " href="php_login/logout.php">LOGOUT</a></li>
-          <?php } else { ?>
-
-            <li class="nav-item"> <a class="nav-link " href="pg_login.php">LOGIN/REGISTRO</a></li>
-          <?php } ?>
-        </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
+      <div class="container">
+        <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="pg_index.php">INICIO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
+            </li>
+            <?php if(isset($_SESSION['username'])) { ?>
+              <li class="nav-item dropdown">
+                <a style="text-transform: uppercase" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $_SESSION['username']; ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="pg_utilizador.php">Utilizador</a>
+                  <a class="dropdown-item" href="php_login/logout.php">Logout</a>
+                </div>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a>
+              </li>
+            <?php } ?>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+        <!-- Page content-->
+
 
       <div class="container-fluid" id="btn-comecar" style="display:none;">
       <div class="d-flex justify-content-center">
@@ -113,18 +115,18 @@ session_start();
 
   if (isset($_SESSION['username']) != true) { ?>
 
-  <p class="pontos-label_atuais">Pontos Atuais: </p>
+  <p class="pontos-label_atuais">Pontos Atuais</p>
   <p class="pontos-value_atuais" id="pontos-atuais"></p>
 
-  <p class="pontos-label_max">Pontos Máximos: </p>
+  <p class="pontos-label_max">Pontos Máximos</p>
   <p class="pontos-value_max" id="pontos-max"></p>
 
 <?php }else { ?>
 
-  <p class="pontos-label_atuais">Pontos Atuais:</p>
+  <p class="pontos-label_atuais">Pontos Atuais</p>
   <p class="pontos-value_atuais"><?php echo $pontos_atuais; ?></p>
 
-  <p class="pontos-label_max">Pontos Máximos:</p>
+  <p class="pontos-label_max">Pontos Máximos</p>
   <p class="pontos-value_max"><?php echo $pontos_max; ?></p>
 
 <?php } ?>
@@ -258,6 +260,7 @@ session_start();
 
 </script>
 
-</body>
+  <script src="js/scripts.js"></script>
 
+</body>
 </html>

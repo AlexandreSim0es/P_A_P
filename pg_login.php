@@ -22,7 +22,6 @@
     <!-- CSS -->
 
     <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-
     <link rel="stylesheet" type="text/css" href="css/pagina_login.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
@@ -34,38 +33,37 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
       <div class="container">
-      <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
+        <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="pg_index.php" >INICIO</a>
+              <a class="nav-link" aria-current="page" href="pg_index.php">INICIO</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
             </li>
-            <?php  if(isset($_SESSION['username'])) {?>
-                  
-                  <li class="nav-item"> <a style="text-transform:uppercase" class="nav-link" href=""><?php echo $_SESSION['username']; ?></a></li>
-                  <li class="nav-item"> <a class="nav-link" href="php_login/logout.php">LOGOUT</a></li>
-              <?php } else { ?>
-  
-                  <li class="nav-item"> <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a></li>
+            <?php if(isset($_SESSION['username'])) { ?>
+              <li class="nav-item dropdown">
+                <a style="text-transform: uppercase" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $_SESSION['username']; ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="pg_utilizador.php">Utilizador</a>
+                  <a class="dropdown-item" href="php_login/logout.php">Logout</a>
+                </div>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a>
+              </li>
             <?php } ?>
           </ul>
         </div>
       </div>
     </nav>
-
     <!-- Conteudo da pagina -->
 
     <div class="outer-container">
@@ -106,5 +104,6 @@
     <!-- Core theme JS-->
 
     <script src="js/scripts.js"></script>
+
   </body>
 </html>

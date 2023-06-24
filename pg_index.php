@@ -1,4 +1,5 @@
 <?php
+
 include('php_login/login.php');
 include('php_jogo/jogo.php');
 include('php_login/conexao_db.php');
@@ -19,7 +20,6 @@ session_start();
   <title>INICIO</title>
 
   <!-- Favicon-->
-
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
   <!-- CSS -->
@@ -34,75 +34,77 @@ session_start();
 
   <!-- Responsive navbar-->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
-      <div class="container">
-        <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="pg_index.php">INICIO</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="pg_index.php">ADIVINHE O JOGO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="pg_index.php">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
+          </li>
+          <?php if (isset($_SESSION['username'])) { ?>
+            <li class="nav-item dropdown">
+              <a style="text-transform: uppercase" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $_SESSION['username']; ?>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="php_login/logout.php">Logout</a>
+              </div>
             </li>
+          <?php } else { ?>
             <li class="nav-item">
-              <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
+              <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a>
             </li>
-            <?php if(isset($_SESSION['username'])) { ?>
-              <li class="nav-item dropdown">
-                <a style="text-transform: uppercase" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <?php echo $_SESSION['username']; ?>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="pg_utilizador.php">Utilizador</a>
-                  <a class="dropdown-item" href="php_login/logout.php">Logout</a>
-                </div>
-              </li>
-            <?php } else { ?>
-              <li class="nav-item">
-                <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a>
-              </li>
-            <?php } ?>
-          </ul>
-        </div>
+          <?php } ?>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-        <!-- Page content-->
+  <!-- Page content-->
 
-
-      <div class="container-fluid" id="btn-comecar" style="display:none;">
-      <div class="d-flex justify-content-center">
-          <button class="space-btn2" >Começar</button>
-          </div>
-      </div>
+  <div class="container-fluid" id="btn-comecar" style="display:none;">
+    <div class="d-flex justify-content-center">
+      <button class="space-btn2">Começar</button>
+    </div>
+  </div>
 
   <div class="container-fluid flex-container" id="jogo-container" style="display:block;">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-         <div class="modal-header">
-            <img id="game_cover_img" class="img-fluid mx-auto" src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?>>
+        <div class="modal-header">
+          <img id="game_cover_img" class="img-fluid mx-auto" src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?>>
         </div>
         <div class="modal-body mx-auto">
           <div class="question" data-toggle="buttons">
-          <?php
-          for ($i = 0; $i < count($jogos); $i++) {
-            echo '<p><label class="options" id="opcao' . $i . '">' . $jogos[$i]['name'] .
-              '<input type="radio" name="opcao">
+            <?php
+            for ($i = 0; $i < count($jogos); $i++) {
+              echo '<p><label class="options" id="opcao' . $i . '">' . $jogos[$i]['name'] .
+                '<input type="radio" name="opcao">
                         <span class="checkmark"></span>
                         </label></p>';
-          }
-          ?>
-          <div class="d-flex justify-content-center">
-            <button class="space-btn" onclick="submit()">Submeter</button>
-          </div>
-       </div>
-   </div>
-</div>
-</div>
-</div>
+            }
+            ?>
 
-<?php
+            <div class="d-flex justify-content-center">
+              <button class="space-btn" onclick="submit()">Submeter</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <?php
 
   $sql = "SELECT pontos_atuais, pontos_max FROM user WHERE username = ?";
 
@@ -115,56 +117,36 @@ session_start();
 
   if (isset($_SESSION['username']) != true) { ?>
 
-  <p class="pontos-label_atuais">Pontos Atuais</p>
-  <p class="pontos-value_atuais" id="pontos-atuais"></p>
+    <p class="pontos-label_atuais">Pontos Atuais</p>
+    <p class="pontos-value_atuais" id="pontos-atuais"></p>
 
-  <p class="pontos-label_max">Pontos Máximos</p>
-  <p class="pontos-value_max" id="pontos-max"></p>
+    <p class="pontos-label_max">Pontos Máximos</p>
+    <p class="pontos-value_max" id="pontos-max"></p>
 
-<?php }else { ?>
+  <?php } else { ?>
 
-  <p class="pontos-label_atuais">Pontos Atuais</p>
-  <p class="pontos-value_atuais"><?php echo $pontos_atuais; ?></p>
+    <p class="pontos-label_atuais">Pontos Atuais</p>
+    <p class="pontos-value_atuais">
+      <?php echo $pontos_atuais; ?>
+    </p>
 
-  <p class="pontos-label_max">Pontos Máximos</p>
-  <p class="pontos-value_max"><?php echo $pontos_max; ?></p>
+    <p class="pontos-label_max">Pontos Máximos</p>
+    <p class="pontos-value_max">
+      <?php echo $pontos_max; ?>
+    </p>
 
-<?php } ?>
+  <?php } ?>
 
-<script>
+  <script>
 
-  localStorage.setItem('pontos_atuais', '0');
+    localStorage.setItem('pontos_atuais', '0');
 
-</script>
-
-<!--
-  <div class="container1 mt-sm-5 my-1 d-flex align-items-center justify-content-center" id="game_container">
-    <div id="jogo-container" style="display:block;">
-      <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5"><img id="game_cover_img" class="img-fluid" src=\PAP_Alex\assets\images/<?php echo $jg_certo['cover']; ?>>
-        </div>
-        <div class="text-center" id="question">
-
-          <?php
-          //for ($i = 0; $i < count($jogos); $i++) {
-          //  echo '<p><label class="options" id="opcao' . $i . '">' . $jogos[$i]['name'] .
-          //    '<input type="radio" name="opcao">
-          //              <span class="checkmark"></span>
-          //              </label></p>';
-          //}
-          ?>
-
-          <button class="space-btn" onclick="submit()">Submeter</button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-        -->
+  </script>
 
   <script>
 
     var op_errada = 0;
+    var op_errada = localStorage.getItem('op_errada') || 0;
 
     function deleteCurrentGame() {
       var xhr = new XMLHttpRequest();
@@ -190,31 +172,37 @@ session_start();
       }
 
       if (chosen === "<?php echo $jg_certo['name']; ?>") {
-          deleteCurrentGame();
+        deleteCurrentGame();
 
-          choices[i].parentElement.classList.add("opcao-certa");
-          image.classList.remove('opcao-errada');
-          image.classList.add('opcao-certa');
+        choices[i].parentElement.classList.add("opcao-certa");
+        image.classList.remove('opcao-errada');
+        image.classList.add('opcao-certa');
 
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'php_jogo/pontos_atuais.php', true);
-          xhr.onreadystatechange = () => {};
-          xhr.send();
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'php_jogo/pontos_atuais.php', true);
+        xhr.onreadystatechange = () => { };
+        xhr.send();
 
-          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-          pontos_atuais += 10;
-          localStorage.setItem('pontos_atuais', pontos_atuais);
+        var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
+        pontos_atuais += 10;
+        localStorage.setItem('pontos_atuais', pontos_atuais);
 
-          setTimeout( ()=> window.location.reload(), 1000);
+        localStorage.removeItem('op_errada');
+
+        setTimeout(() => window.location.reload(), 1000);
 
       } else {
-          op_errada++;
+        op_errada++;
 
-          choices[i].parentElement.classList.add("opcao-errada");
-          image.classList.add('opcao-errada');
-          image.classList.remove('opcao-certa');
+        choices[i].parentElement.classList.add("opcao-errada");
+        image.classList.add('opcao-errada');
+        image.classList.remove('opcao-certa');
 
-      if (op_errada === 2) {
+        if (op_errada === 1) {
+          localStorage.setItem('op_errada', 1);
+        }
+
+        if (op_errada === 2) {
 
           var xhr = new XMLHttpRequest();
           xhr.open('GET', 'php_jogo/pontos_max.php', true);
@@ -224,11 +212,14 @@ session_start();
           var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
           var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
 
-      if (pontos_atuais > pontos_max) {
+          if (pontos_atuais > pontos_max) {
             pontos_max = pontos_atuais;
           }
 
-          window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
+          setTimeout(function () {
+            window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
+          }, 500);
+
           deleteCurrentGame();
           localStorage.clear();
 
@@ -236,7 +227,7 @@ session_start();
 
           localStorage.setItem('pontos_atuais', pontos_atuais);
           localStorage.setItem('pontos_max', pontos_max);
-        } 
+        }
       }
     }
 
@@ -245,7 +236,7 @@ session_start();
       document.getElementById('jogo-container').style.display = 'none';
     }
 
-      document.getElementById('btn-comecar').addEventListener('click', function () {
+    document.getElementById('btn-comecar').addEventListener('click', function () {
       localStorage.setItem('jg_comecou', 'true');
 
       document.getElementById('btn-comecar').style.display = 'none';
@@ -258,9 +249,10 @@ session_start();
     document.getElementById('pontos-atuais').textContent = pontos_atuais;
     document.getElementById('pontos-max').textContent = pontos_max;
 
-</script>
+  </script>
 
   <script src="js/scripts.js"></script>
 
 </body>
+
 </html>

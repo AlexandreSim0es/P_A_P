@@ -87,7 +87,7 @@ label{
 }
 input{
 	width: 60%;
-	height: 25px;
+	height: 28px;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
@@ -196,7 +196,7 @@ button:hover{
 }
 
 .dropdown-menu {
-	background-color: #343a40;
+	background-color: #212529;
 	border: none;
 	position: fixed;
 	display: none;

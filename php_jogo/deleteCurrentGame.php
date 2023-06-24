@@ -7,7 +7,6 @@
         $jogo->close();
     }
 
-    
     if ($_SERVER['REQUEST_METHOD'] === 'DELETE') deleteCurrentGame($con);
 
     $con->close();

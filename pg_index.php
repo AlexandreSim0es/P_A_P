@@ -142,12 +142,6 @@ session_start();
 
   <script>
 
-    localStorage.setItem('pontos_atuais', '0');
-
-  </script>
-
-  <script>
-
     var op_errada = 0;
     var op_errada = localStorage.getItem('op_errada') || 0;
 

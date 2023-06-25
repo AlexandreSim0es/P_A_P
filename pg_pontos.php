@@ -96,7 +96,7 @@ session_start();
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . $row['username'] . "</td>";
-            echo "<td>" . $row['pontos_max'] . " pontos</td>";
+            echo "<td>" . $row['pontos_max'] . " </td>";
             echo "</tr>";
         }
 

@@ -1,8 +1,3 @@
-<?php
-include(__DIR__.'\..\php_login/login.php');
-session_start();
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt">

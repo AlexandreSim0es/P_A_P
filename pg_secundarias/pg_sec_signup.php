@@ -1,8 +1,4 @@
-<?php
-include('php_login/login.php');
-session_start();
 
-?>
 
 <!DOCTYPE html>
 <html lang="pt">

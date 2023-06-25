@@ -1,4 +1,5 @@
 <?php
+include('php_login/conexao_db.php');
 include('php_login/login.php');
 session_start();
 
@@ -9,12 +10,14 @@ session_start();
 
 <head>
 
+  <title>SUPORTE</title>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>LOGIN</title>
+  <title>SUPORTE</title>
 
   <!-- Favicon-->
 
@@ -23,14 +26,14 @@ session_start();
   <!-- CSS -->
 
   <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-  <link rel="stylesheet" type="text/css" href="css/pagina_login.css" />
+  <link rel="stylesheet" type="text/css" href="css/pagina_pontos.css" />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
 
-  <!-- Navbar responsiva-->
+  <!-- Responsive navbar-->
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -48,7 +51,7 @@ session_start();
             <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pg_pontos.php">PONTUAÇÃO</a>
+            <a class="nav-link active" href="pg_pontos.php">PONTUAÇÃO</a>
           </li>
           <?php if (isset($_SESSION['username'])) { ?>
             <li class="nav-item dropdown">
@@ -62,45 +65,52 @@ session_start();
             </li>
           <?php } else { ?>
             <li class="nav-item">
-              <a class="nav-link active" href="pg_login.php">LOGIN</a>
+              <a class="nav-link" href="pg_login.php">LOGIN</a>
             </li>
           <?php } ?>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- Conteudo da pagina -->
 
-  <div class="outer-container">
-    <div class="main">
-      <input type="checkbox" id="chk" aria-hidden="true" />
+  <!-- Page content-->
 
-      <div class="signup">
+     <div class="container1">
+     <h1>TOP 10</h1>
+     <table id="customers">
+      <thead>
+        <tr>
+          <th>Utilizador</th>
+          <th>Pontos</th>
+        </tr>
+      </thead>
 
-        <form action="php_login/registro_login.php" method="post">
-          <label for="chk" aria-hidden="true">Registro</label>
-          <input type="text" name="username" placeholder="Username" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="password" name="password" placeholder="Password" required />
+      <?php
 
-          <button>Sign up</button>
+        $query = "SELECT username, pontos_max FROM user ORDER BY pontos_max DESC LIMIT 10";
+        $result = mysqli_query($con, $query);
 
-        </form>
-      </div>
+        $num_rows = mysqli_num_rows($result);
+        $fill_count = 10 - $num_rows;
 
-      <div class="login">
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . $row['username'] . "</td>";
+            echo "<td>" . $row['pontos_max'] . " pontos</td>";
+            echo "</tr>";
+        }
 
-        <form action="php_login/login.php" method="post">
-          <label for="chk" aria-hidden="true">Login</label>
-          <input type="text" name="username" placeholder="Username" required />
-          <input type="password" name="password" placeholder="Password" required />
+        for ($i = 0; $i < $fill_count; $i++) {
+            echo "<tr>";
+            echo "<td>-</td>";
+            echo "<td>-</td>";
+            echo "</tr>";
+        }
 
-          <button>Login</button>
+        mysqli_close($con);
 
-        </form>
-      </div>
-    </div>
-  </div>
+    ?>
+
 
   <!-- Bootstrap core JS-->
 

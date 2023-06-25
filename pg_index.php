@@ -44,10 +44,13 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="pg_index.php">INICIO</a>
+            <a class="nav-link active" aria-current="page" href="pg_index.php">INICIO</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pg_pontos.php">PONTUAÇÃO</a>
           </li>
           <?php if (isset($_SESSION['username'])) { ?>
             <li class="nav-item dropdown">
@@ -61,7 +64,7 @@ session_start();
             </li>
           <?php } else { ?>
             <li class="nav-item">
-              <a class="nav-link" href="pg_login.php">LOGIN/REGISTRO</a>
+              <a class="nav-link" href="pg_login.php">LOGIN</a>
             </li>
           <?php } ?>
         </ul>

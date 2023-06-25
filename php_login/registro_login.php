@@ -12,12 +12,12 @@
         $stmt->close();
 
         if(mysqli_num_rows($result) > 0){
-            header("location: \PAP_Alex\pg_secundarias/pg_sec_signup_error.php");
+            header("location: \PAP_Alex\pg_secundarias/pg_signup_error.php");
             exit();
         }
 
         if (strlen($_POST['password']) > 100 || strlen($_POST['password']) < 5) {
-            header("location: \PAP_Alex\pg_secundarias/pg_sec_signup_password.php"); 
+            header("location: \PAP_Alex\pg_secundarias/pg_signup_password.php"); 
             exit();
         }
 
@@ -27,7 +27,7 @@
         $stmt->execute();
         $stmt->close();
 
-        header("location: \PAP_Alex\pg_secundarias/pg_sec_signup.php"); 
+        header("location: \PAP_Alex\pg_secundarias/pg_signup.php"); 
         
     }
     }

@@ -23,7 +23,7 @@
             exit();
 
         }else {
-            header("location: \PAP_Alex\pg_secundarias/pg_sec_login_error.php");
+            header("location: \PAP_Alex\pg_secundarias/pg_login_error.php");
             exit();
 
         }

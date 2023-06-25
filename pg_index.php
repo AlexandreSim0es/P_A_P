@@ -59,6 +59,7 @@ session_start();
                 <?php echo $_SESSION['username']; ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="pg_alterar_pass.php">Alterar Password</a>
                 <a class="dropdown-item" href="php_login/logout.php">Logout</a>
               </div>
             </li>
@@ -214,7 +215,7 @@ session_start();
           }
 
           setTimeout(function () {
-            window.location.href = "pg_secundarias/pg_sec_jg_perdido.php";
+            window.location.href = "pg_secundarias/pg_jg_perdido.php";
           }, 500);
 
           deleteCurrentGame();

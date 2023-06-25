@@ -19,7 +19,7 @@
         $headers = "From: Suporte_Site_Alex email";
     
         if (mail($to_email, $subject, utf8_decode($body), $headers)) {
-                header("location: \PAP_Alex\pg_secundarias/pg_sec_email.php");
+                header("location: \PAP_Alex\pg_secundarias/pg_email.php");
             } 
         }
 

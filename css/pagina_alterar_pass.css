@@ -1,0 +1,81 @@
+form {
+    width: 350px;
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 20px 50px #000;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #573b8a;
+    font-weight: bold;
+  }
+  
+  input[type="password"] {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #573b8a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #6d44b8;
+  }
+  
+  .dropdown-menu {
+	background-color: #212529;
+	border: none;
+	position: fixed;
+	display: none;
+	z-index: 1000;
+  }
+  
+  .dropdown-item {
+	color: #fff;
+  }
+  
+  .dropdown-item:hover {
+	background-color: #6c757d;
+  }
+  
+  .dropdown-toggle::after {
+	display: inline-block;
+	margin-left: 0.255em;
+	vertical-align: 0.255em;
+	content: "";
+	border-top: 0.3em solid;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0;
+	border-left: 0.3em solid transparent;
+  }
+  
+  .dropdown-toggle[aria-expanded="true"]::after {
+	border-top: 0;
+	border-bottom: 0.3em solid;
+  }
+  
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+	position: absolute;
+  } 

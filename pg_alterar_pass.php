@@ -1,7 +1,6 @@
 <?php
-include('php_login/conexao_db.php');
 include('php_login/login.php');
-session_start();
+include("php_login/alterar_pass.php");
 
 ?>
 
@@ -10,14 +9,12 @@ session_start();
 
 <head>
 
-  <title>SUPORTE</title>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>SUPORTE</title>
+  <title>LOGIN</title>
 
   <!-- Favicon-->
 
@@ -26,14 +23,14 @@ session_start();
   <!-- CSS -->
 
   <link rel="stylesheet" type="text/css" href="css/navbar.css" />
-  <link rel="stylesheet" type="text/css" href="css/pagina_pontos.css" />
+  <link rel="stylesheet" type="text/css" href="css/pagina_alterar_pass.css" />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 
 </head>
 
 <body>
 
-  <!-- Responsive navbar-->
+  <!-- Navbar responsiva-->
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -51,7 +48,7 @@ session_start();
             <a class="nav-link" href="pg_suporte.php">SUPORTE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="pg_pontos.php">PONTUAÇÃO</a>
+            <a class="nav-link" href="pg_pontos.php">PONTUAÇÃO</a>
           </li>
           <?php if (isset($_SESSION['username'])) { ?>
             <li class="nav-item dropdown">
@@ -60,58 +57,32 @@ session_start();
                 <?php echo $_SESSION['username']; ?>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="pg_alterar_pass.php">Alterar Password</a>
                 <a class="dropdown-item" href="php_login/logout.php">Logout</a>
               </div>
             </li>
           <?php } else { ?>
             <li class="nav-item">
-              <a class="nav-link" href="pg_login.php">LOGIN</a>
+              <a class="nav-link active" href="pg_login.php">LOGIN</a>
             </li>
           <?php } ?>
         </ul>
       </div>
     </div>
   </nav>
+  <!-- Conteudo da pagina -->
 
-  <!-- Page content-->
+<form method="post">
+    <label for="current-password">Password atual:</label>
+    <input type="password" id="current-password" name="current-password" required>
 
-     <div class="container1">
-     <h1>TOP 10</h1>
-     <table id="customers">
-      <thead>
-        <tr>
-          <th style="width: 618px;">Utilizador</th>
-          <th style="width: 318px;">Pontos</th>
-        </tr>
-      </thead>
+    <label for="new-password">Nova password:</label>
+    <input type="password" id="new-password" name="new-password" required>
 
-      <?php
+    <label for="confirm-password">Confirmar nova password:</label>
+    <input type="password" id="confirm-password" name="confirm-password" required>
 
-        $query = "SELECT username, pontos_max FROM user ORDER BY pontos_max DESC LIMIT 10";
-        $result = mysqli_query($con, $query);
-
-        $num_rows = mysqli_num_rows($result);
-        $fill_count = 10 - $num_rows;
-
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['username'] . "</td>";
-            echo "<td>" . $row['pontos_max'] . " </td>";
-            echo "</tr>";
-        }
-
-        for ($i = 0; $i < $fill_count; $i++) {
-            echo "<tr>";
-            echo "<td>-</td>";
-            echo "<td>-</td>";
-            echo "</tr>";
-        }
-
-        mysqli_close($con);
-
-    ?>
-
+    <button type="submit">Guardar</button>
+</form>
 
   <!-- Bootstrap core JS-->
 

@@ -80,8 +80,8 @@ session_start();
      <table id="customers">
       <thead>
         <tr>
-          <th>Utilizador</th>
-          <th>Pontos</th>
+          <th style="width: 618px;">Utilizador</th>
+          <th style="width: 318px;">Pontos</th>
         </tr>
       </thead>
 

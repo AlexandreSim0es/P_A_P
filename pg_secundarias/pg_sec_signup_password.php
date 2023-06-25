@@ -30,48 +30,65 @@
 
     <style>
  
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400600&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400600&display=swap');
     
-    main {
-      padding: 40px;
-    }
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400600&display=swap');
 
-    section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .alert {
-      width: 600px;
-      padding: 50px;
-      margin: 8px;
-      margin-top: 18rem;
-      margin-bottom: 30rem; 
-      border-radius: 10px;
-      box-shadow: 5px 20px 50px #000;
-    }
+      body {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Open Sans', sans-serif;
+      }
 
-    .alert-2-secondary {
-      border-left: 4px solid  #f2f2f2;
-      background-color:  rgba(0, 0, 0, 0.2);
-    }
+      main {
+        padding: 40px;
+      }
 
-    .alert-2-secondary .alert-title {
-      color:  #f2f2f2;
-    }
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-    .alert-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-    }
+      .alert {
+        width: 600px;
+        padding: 50px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 5px 20px 50px #000;
+      }
 
-    .alert-content {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: bold;
-      color:  #f2f2f2;
-    }
+      .alert-2-secondary {
+        border-left: 4px solid #f2f2f2;
+        background-color: rgba(0, 0, 0, 0.2);
+        color:  #f2f2f2;
+      }
+
+      .alert-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+      }
+
+      .alert-content {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        color: #f2f2f2;
+      }
+
+      /* Media Queries para tornar o CSS responsivo */
+      @media (max-width: 768px) {
+        .alert {
+          width: 90%;
+        }
+      }
+
 
     </style>
 

@@ -30,6 +30,10 @@
 
     <style>
 
+    body{
+      overflow: hidden;
+    }
+
     h1 {
       display: block;
       margin-top: 5em;
@@ -153,7 +157,7 @@
           <h1 class="text-center mx-auto">Fim do Jogo</h1>
 
           <div class="d-flex justify-content-center">
-            <button id="btn-comecar" class="space-btn2">Tentar outra vez</button>
+            <button id="btn-comecar" class="space-btn2">Tentar Novamente</button>
           </div>
       </div>
     

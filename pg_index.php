@@ -155,13 +155,13 @@ session_start();
 
     function submit() {
       var choices = document.getElementsByName("opcao");
-      var chosen = null;
+      var chosen = null;                  
       let image = document.getElementById('game_cover_img');
       for (var i = 0; i < choices.length; i++) {
         if (choices[i].checked) {
           chosen = choices[i].parentElement.innerText.trim();
           break;
-        }
+        }                                       
       }
 
       if (!chosen) {

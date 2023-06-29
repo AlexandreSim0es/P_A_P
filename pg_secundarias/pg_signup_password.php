@@ -97,7 +97,7 @@
         <div class="alert alert-2-secondary">
           <h3 class="alert-title">A password tem de ter mais de 5 carateres!</h3>
           <p class="alert-content">Insira uma password forte!</p>
-          <p class="alert-content"><a href="\PAP_Alex/pg_login.php">Tente novamente</a></p>
+          <p class="alert-content"><a href="\PAP_Alex/pg_index.php">Tente novamente</a></p>
         </div>
       </section>
     </main>

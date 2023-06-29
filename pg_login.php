@@ -78,7 +78,7 @@ session_start();
       <div class="signup">
 
         <form action="php_login/registro_login.php" method="post">
-          <label for="chk" aria-hidden="true">Registro</label>
+          <label for="chk" aria-hidden="true">Registo</label>
           <input type="text" name="username" placeholder="Username" required />
           <input type="email" name="email" placeholder="Email" required />
           <input type="password" name="password" placeholder="Password" required />

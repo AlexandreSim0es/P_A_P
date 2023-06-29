@@ -96,7 +96,7 @@
         <div class="alert alert-2-secondary">
           <h3 class="alert-title">Password alterada!</h3>
           <p class="alert-content">A sua password foi alterada com sucesso!</p>
-          <p class="alert-content"><a href="\PAP_Alex/pg_alterar_pass.php">Voltar</a></p>
+          <p class="alert-content"><a href="\PAP_Alex\php_login/logout.php">Voltar</a></p>
         </div>
       </section>
     </main>

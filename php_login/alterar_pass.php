@@ -10,14 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $confirmPassword = $_POST['confirm-password'];
 
         if ($newPassword !== $confirmPassword) {
-            header("location: \PAP_Alex\pg_secundarias/pg_diferentes.php"); 
+            header("location: \PAP_Alex\pg_secundarias/pg_pass_diferentes.php"); 
             exit;
         }
 
-        if (strlen($newPassword) < 5) {
-            header("location: \PAP_Alex\pg_secundarias/pg_5carac.php"); 
-            exit;
-        }    
+        if (strlen($newPassword) > 100 || strlen($newPassword) < 5) {
+            header("location: \PAP_Alex\pg_secundarias/pg_signup_password.php"); 
+            exit();
+        }
 
         if (isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
@@ -41,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     if ($con->query($updateSql) === TRUE) {
                         header("location: \PAP_Alex\pg_secundarias/pg_pass_confirmada.php"); 
-                        header("location: \PAP_Alex\php_login/logout.php");
                         exit();
                     } 
                 }

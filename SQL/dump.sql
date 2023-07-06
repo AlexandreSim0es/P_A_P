@@ -26,6 +26,7 @@
       mensagem VARCHAR(1000) NOT NULL
   );
 
+  INSERT INTO game (name, cover, url) VALUES ("Counter Strike 2", "co6ab2.jpg", "https://www.igdb.com/games/counter-strike-2");
   INSERT INTO game (name, cover, url) VALUES ("Grand Theft Auto V", "co2lbd.jpg", "https://www.igdb.com/games/grand-theft-auto-v");
   INSERT INTO game (name, cover, url) VALUES ("The Witcher 3: Wild Hunt", "co1wyy.jpg", "https://www.igdb.com/games/the-witcher-3-wild-hunt");
   INSERT INTO game (name, cover, url) VALUES ("Portal 2", "co1rs4.jpg", "https://www.igdb.com/games/portal-2");

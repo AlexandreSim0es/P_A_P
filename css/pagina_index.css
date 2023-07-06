@@ -11,7 +11,7 @@ body{
 
 .img-fluid {
 	max-height: calc(100vh - 500px);
-	filter: blur(8px);
+	filter: blur(15px);
 	border-radius: 8px;
 	box-shadow: 5px 21px 60px #000;
 }

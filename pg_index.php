@@ -1,9 +1,7 @@
 <?php
 
-include('php_login/login.php');
 include('php_jogo/jogo.php');
 include('php_login/conexao_db.php');
-session_start();
 
 ?>
 
@@ -154,7 +152,6 @@ session_start();
     }
 
     function submit() {
-      document.getElementById('btn-submit').disabled = true;
       var choices = document.getElementsByName("opcao");
       var chosen = null;                  
       let image = document.getElementById('game_cover_img');
@@ -180,7 +177,11 @@ session_start();
 
         pontos('php_jogo/pontos_atuais.php');
 
-        pontos_atuais_localstorage();
+        var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
+        pontos_atuais += 10;
+        localStorage.setItem('pontos_atuais', pontos_atuais);
+
+        localStorage.removeItem('op_errada');
 
         setTimeout(() => window.location.reload(), 1000);
 
@@ -199,7 +200,12 @@ session_start();
 
           pontos('php_jogo/pontos_max.php');
 
-          pontos_max_localstorage();
+          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
+          var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
+
+          if (pontos_atuais > pontos_max) {
+            pontos_max = pontos_atuais;
+          }
 
           setTimeout(function () {
             window.location.href = "pg_secundarias/pg_jg_perdido.php";
@@ -216,7 +222,17 @@ session_start();
       }
     }
 
-    bt_começar();
+    if (localStorage.getItem('jg_comecou') !== 'true') {
+      document.getElementById('btn-comecar').style.display = 'block';
+      document.getElementById('jogo-container').style.display = 'none';
+    }
+
+    document.getElementById('btn-comecar').addEventListener('click', function () {
+      localStorage.setItem('jg_comecou', 'true');
+
+      document.getElementById('btn-comecar').style.display = 'none';
+      document.getElementById('jogo-container').style.display = 'block';
+    });
 
     var pontos_atuais = localStorage.getItem('pontos_atuais');
     var pontos_max = localStorage.getItem('pontos_max');

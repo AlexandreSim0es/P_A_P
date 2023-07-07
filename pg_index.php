@@ -178,11 +178,7 @@ session_start();
 
         pontos('php_jogo/pontos_atuais.php');
 
-        var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-        pontos_atuais += 10;
-        localStorage.setItem('pontos_atuais', pontos_atuais);
-
-        localStorage.removeItem('op_errada');
+        pontos_atuais_localstorage();
 
         setTimeout(() => window.location.reload(), 1000);
 

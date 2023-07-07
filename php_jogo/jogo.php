@@ -91,6 +91,20 @@
         localStorage.removeItem('op_errada');
     }
 
+    function bt_começar(){
+        if (localStorage.getItem('jg_comecou') !== 'true') {
+          document.getElementById('btn-comecar').style.display = 'block';
+          document.getElementById('jogo-container').style.display = 'none';
+        }
+    
+        document.getElementById('btn-comecar').addEventListener('click', function () {
+          localStorage.setItem('jg_comecou', 'true');
+    
+          document.getElementById('btn-comecar').style.display = 'none';
+          document.getElementById('jogo-container').style.display = 'block';
+        });
+    }
+
     $nJogos = 5;
     $data = getCurrentGame($con);
     $indexes = $data['indexes'];

@@ -1,7 +1,6 @@
 <?php
     include(__DIR__.'\..\php_login/conexao_db.php');
 
-    session_start();
     $username = $_SESSION['username'];
 
     if ($stmt = $con->prepare("UPDATE user SET pontos_max = pontos_atuais WHERE username = ? AND pontos_atuais > pontos_max")) {

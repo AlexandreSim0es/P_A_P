@@ -201,24 +201,13 @@ session_start();
 
           pontos('php_jogo/pontos_max.php');
 
-          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-          var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
-
-          if (pontos_atuais > pontos_max) {
-            pontos_max = pontos_atuais;
-          }
+          pontos_max_localstorage();
 
           setTimeout(function () {
             window.location.href = "pg_secundarias/pg_jg_perdido.php";
           }, 500);
 
           deleteCurrentGame();
-          localStorage.clear();
-
-          pontos_atuais = 0;
-
-          localStorage.setItem('pontos_atuais', pontos_atuais);
-          localStorage.setItem('pontos_max', pontos_max);
         }
       }
     }

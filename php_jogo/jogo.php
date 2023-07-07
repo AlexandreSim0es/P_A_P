@@ -60,7 +60,12 @@
         }
     }
 
-    
+    function pontos(url) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onreadystatechange = () => { };
+      xhr.send();
+    }
     
     $nJogos = 5;
     $data = getCurrentGame($con);

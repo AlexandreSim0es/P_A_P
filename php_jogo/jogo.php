@@ -60,7 +60,6 @@
         }
     }
 
-<<<<<<< HEAD
 ?>
 
 <script>
@@ -75,52 +74,6 @@
 </script>
 
 <?php
-=======
-    function pontos(ficheiro) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', ficheiro, true);
-      xhr.onreadystatechange = () => { };
-      xhr.send();
-    }
-
-    function pontos_max_localstorage(){
-          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-          var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
-        
-          if (pontos_atuais > pontos_max) {
-            pontos_max = pontos_atuais;
-          }
-        
-          localStorage.clear();
-        
-          pontos_atuais = 0;
-        
-          localStorage.setItem('pontos_atuais', pontos_atuais);
-          localStorage.setItem('pontos_max', pontos_max);
-    }
-
-    function pontos_atuais_localstorage(){
-        var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-        pontos_atuais += 10;
-        localStorage.setItem('pontos_atuais', pontos_atuais);
-
-        localStorage.removeItem('op_errada');
-    }
-
-    function bt_começar(){
-        if (localStorage.getItem('jg_comecou') !== 'true') {
-          document.getElementById('btn-comecar').style.display = 'block';
-          document.getElementById('jogo-container').style.display = 'none';
-        }
-    
-        document.getElementById('btn-comecar').addEventListener('click', function () {
-          localStorage.setItem('jg_comecou', 'true');
-    
-          document.getElementById('btn-comecar').style.display = 'none';
-          document.getElementById('jogo-container').style.display = 'block';
-        });
-    }
->>>>>>> dc34927d980c4f1f4db4b2cdf88380cf44cc1fe5
 
     $nJogos = 5;
     $data = getCurrentGame($con);

@@ -1,7 +1,9 @@
 <?php
 
-  include('php_jogo/jogo.php');
-  include('php_login/conexao_db.php'); 
+include('php_login/login.php');
+include('php_jogo/jogo.php');
+include('php_login/conexao_db.php');
+session_start();
 
 ?>
 
@@ -152,6 +154,7 @@
     }
 
     function submit() {
+      document.getElementById('btn-submit').disabled = true;
       var choices = document.getElementsByName("opcao");
       var chosen = null;                  
       let image = document.getElementById('game_cover_img');
@@ -177,11 +180,7 @@
 
         pontos('php_jogo/pontos_atuais.php');
 
-        var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-        pontos_atuais += 10;
-        localStorage.setItem('pontos_atuais', pontos_atuais);
-
-        localStorage.removeItem('op_errada');
+        pontos_atuais_localstorage();
 
         setTimeout(() => window.location.reload(), 1000);
 
@@ -200,12 +199,7 @@
 
           pontos('php_jogo/pontos_max.php');
 
-          var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
-          var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
-
-          if (pontos_atuais > pontos_max) {
-            pontos_max = pontos_atuais;
-          }
+          pontos_max_localstorage();
 
           setTimeout(function () {
             window.location.href = "pg_secundarias/pg_jg_perdido.php";
@@ -218,22 +212,11 @@
 
           localStorage.setItem('pontos_atuais', pontos_atuais);
           localStorage.setItem('pontos_max', pontos_max);
-          
         }
       }
     }
 
-    if (localStorage.getItem('jg_comecou') !== 'true') {
-      document.getElementById('btn-comecar').style.display = 'block';
-      document.getElementById('jogo-container').style.display = 'none';
-    }
-
-    document.getElementById('btn-comecar').addEventListener('click', function () {
-      localStorage.setItem('jg_comecou', 'true');
-
-      document.getElementById('btn-comecar').style.display = 'none';
-      document.getElementById('jogo-container').style.display = 'block';
-    });
+    bt_começar();
 
     var pontos_atuais = localStorage.getItem('pontos_atuais');
     var pontos_max = localStorage.getItem('pontos_max');

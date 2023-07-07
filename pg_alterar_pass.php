@@ -1,6 +1,6 @@
 <?php
-include('php_login/login.php');
-include("php_login/alterar_pass.php");
+  include('php_login/login.php');
+  include("php_login/alterar_pass.php");
 
 ?>
 

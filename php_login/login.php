@@ -15,7 +15,6 @@
             
             header("location: \PAP_Alex\pg_index.php");
 
-            session_start();
             $_SESSION['username'] = $username;
 
             $stmt->close();

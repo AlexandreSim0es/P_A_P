@@ -1,9 +1,7 @@
 <?php
 
-include('php_login/login.php');
-include('php_jogo/jogo.php');
-include('php_login/conexao_db.php');
-session_start();
+  include('php_jogo/jogo.php');
+  include('php_login/conexao_db.php'); 
 
 ?>
 
@@ -99,7 +97,7 @@ session_start();
             ?>
 
             <div class="d-flex justify-content-center">
-              <button class="space-btn" onclick="submit()">Submeter</button>
+              <button class="space-btn" onclick="submit()" id="submeter-btn">Submeter</button>
             </div>
             
           </div>
@@ -161,8 +159,9 @@ session_start();
         if (choices[i].checked) {
           chosen = choices[i].parentElement.innerText.trim();
           break;
-        }                                       
+        }                                     
       }
+      
 
       if (!chosen) {
         alert("Escolha uma das opções!");
@@ -176,10 +175,7 @@ session_start();
         image.classList.remove('opcao-errada');
         image.classList.add('opcao-certa');
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'php_jogo/pontos_atuais.php', true);
-        xhr.onreadystatechange = () => { };
-        xhr.send();
+        pontos('php_jogo/pontos_atuais.php');
 
         var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
         pontos_atuais += 10;
@@ -202,10 +198,7 @@ session_start();
 
         if (op_errada === 2) {
 
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'php_jogo/pontos_max.php', true);
-          xhr.onreadystatechange = () => { };
-          xhr.send();
+          pontos('php_jogo/pontos_max.php');
 
           var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
           var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
@@ -225,6 +218,7 @@ session_start();
 
           localStorage.setItem('pontos_atuais', pontos_atuais);
           localStorage.setItem('pontos_max', pontos_max);
+          
         }
       }
     }

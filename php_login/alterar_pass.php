@@ -1,6 +1,5 @@
 <?php
 include('conexao_db.php'); 
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['current-password'], $_POST['new-password'], $_POST['confirm-password'])) {

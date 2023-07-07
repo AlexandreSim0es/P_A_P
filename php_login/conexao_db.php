@@ -11,4 +11,8 @@
         die("Falha ao conectar com o MySQL:". mysqli_connect_error());  
     }  
 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
 ?>

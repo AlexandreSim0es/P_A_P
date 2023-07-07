@@ -60,13 +60,27 @@
         }
     }
 
-    
-    
+?>
+
+<script>
+
+    function pontos(ficheiro) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', ficheiro, true);
+        xhr.onreadystatechange = () => { };
+        xhr.send();
+    }
+
+</script>
+
+<?php
+
     $nJogos = 5;
     $data = getCurrentGame($con);
     $indexes = $data['indexes'];
     $escolha = $data['choice'];    
     
+
     if (count($indexes) === 0) {
         $indexes = range(1, countGames($con));
         shuffle($indexes);
@@ -83,9 +97,6 @@
     $jg_certo = $jogos[$escolha];
 
     $con->close();
-
-    
-
 ?>
 
 

@@ -66,6 +66,22 @@
       xhr.onreadystatechange = () => { };
       xhr.send();
     }
+
+    function pontos_max_localstorage(){
+        var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
+          var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;
+        
+          if (pontos_atuais > pontos_max) {
+            pontos_max = pontos_atuais;
+          }
+        
+          localStorage.clear();
+        
+          pontos_atuais = 0;
+        
+          localStorage.setItem('pontos_atuais', pontos_atuais);
+          localStorage.setItem('pontos_max', pontos_max);
+    }
     
     $nJogos = 5;
     $data = getCurrentGame($con);

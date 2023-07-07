@@ -2,7 +2,6 @@
 
 include('php_login/login.php');
 include('php_jogo/jogo.php');
-include('php_login/conexao_db.php');
 session_start();
 
 ?>

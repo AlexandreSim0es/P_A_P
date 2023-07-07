@@ -176,10 +176,7 @@ session_start();
         image.classList.remove('opcao-errada');
         image.classList.add('opcao-certa');
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'php_jogo/pontos_atuais.php', true);
-        xhr.onreadystatechange = () => { };
-        xhr.send();
+        pontos('php_jogo/pontos_atuais.php');
 
         var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
         pontos_atuais += 10;
@@ -202,10 +199,7 @@ session_start();
 
         if (op_errada === 2) {
 
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', 'php_jogo/pontos_max.php', true);
-          xhr.onreadystatechange = () => { };
-          xhr.send();
+          pontos('php_jogo/pontos_max.php');
 
           var pontos_atuais = parseInt(localStorage.getItem('pontos_atuais'), 10) || 0;
           var pontos_max = parseInt(localStorage.getItem('pontos_max'), 10) || 0;

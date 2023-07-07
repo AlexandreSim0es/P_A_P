@@ -60,9 +60,9 @@
         }
     }
 
-    function pontos(url) {
+    function pontos(ficheiro) {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
+      xhr.open('GET', ficheiro, true);
       xhr.onreadystatechange = () => { };
       xhr.send();
     }

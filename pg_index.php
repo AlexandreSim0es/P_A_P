@@ -153,6 +153,7 @@ session_start();
     }
 
     function submit() {
+      document.getElementById('btn-submit').disabled = true;
       var choices = document.getElementsByName("opcao");
       var chosen = null;                  
       let image = document.getElementById('game_cover_img');
